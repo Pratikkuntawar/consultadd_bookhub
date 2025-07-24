@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["src/app/service/campaign-service.ts"],
+  "sourcesContent": ["import { Injectable } from '@angular/core';\nimport { HttpClient } from '@angular/common/http';\nimport { Observable } from 'rxjs';\nimport { CampaignModel } from '../models/CapaignModel';\n\n@Injectable({\n  providedIn: 'root'\n})\nexport class CampaignService {\n  private baseUrl = 'http://localhost:8080/marketing';\n\n  constructor(private http: HttpClient) {}\n\n  registerCampaign(campaign: CampaignModel): Observable<any> {\n    return this.http.post(`${this.baseUrl}/createCampaign`, campaign);\n  }\n  getAllCompaign():Observable<any>{\n   return this.http.get<any>(`${this.baseUrl}/getCampaign`);\n  }\n}\n"],
+  "mappings": ";;;;;;;;;;;;;;;IAQa;;;;;AARb;AACA;AAOO,IAAM,kBAAN,MAAMA,iBAAe;MAGN;MAFZ,UAAU;MAElB,YAAoB,MAAgB;AAAhB,aAAA,OAAA;MAAmB;MAEvC,iBAAiB,UAAuB;AACtC,eAAO,KAAK,KAAK,KAAK,GAAG,KAAK,OAAO,mBAAmB,QAAQ;MAClE;MACA,iBAAc;AACb,eAAO,KAAK,KAAK,IAAS,GAAG,KAAK,OAAO,cAAc;MACxD;;;;;AAVW,sBAAe,WAAA;MAH3B,WAAW;QACV,YAAY;OACb;OACY,eAAe;;;",
+  "names": ["CampaignService"]
+}

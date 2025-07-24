@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["angular:jit:template:src/app/home/home.html", "angular:jit:style:src/app/home/home.css", "src/app/home/home.ts"],
+  "sourcesContent": ["<h3 class=\"p-5\">Welcome to My website !!!</h3> ", "/* src/app/home/home.css */\n/*# sourceMappingURL=home.css.map */\n", "import { Component } from '@angular/core';\n\n@Component({\n  selector: 'app-home',\n  imports: [],\n  templateUrl: './home.html',\n  styleUrl: './home.css'\n})\nexport class Home {\n\n}\n"],
+  "mappings": ";;;;;;;;;;;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;;;ACAA,IAAAA;AAAA,IAAAC,aAAA;AAAA;AAAA,IAAAD,gBAAA;AAAA;AAAA;;;ICQa;;;;;;;AARb;AAQO,IAAM,OAAN,MAAME,MAAI;;AAAJ,WAAI,WAAA;MANhB,UAAU;QACT,UAAU;QACV,SAAS,CAAA;QACT,UAAA;;OAED;OACY,IAAI;;;",
+  "names": ["home_default", "init_home", "Home"]
+}

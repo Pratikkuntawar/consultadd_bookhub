@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["src/app/service/employee-service.ts"],
+  "sourcesContent": ["import { Injectable } from '@angular/core';\nimport { HttpClient, HttpHeaders } from '@angular/common/http';\nimport { EmployeeModel } from '../models/Employee';\nimport { Observable } from 'rxjs';\n@Injectable({\n  providedIn: 'root'\n})\nexport class employeeService {\n  constructor(private httpClient: HttpClient) {\n    console.log(\"This is StudentService\");\n  }\n\n  getMyInfo(): Observable<EmployeeModel> {\n    console.log(\"In the getEmployee service\");\n    return this.httpClient.get<EmployeeModel>(\"http://localhost:8080/employee/getMyInfo\");\n  }\n \n\n}\n"],
+  "mappings": ";;;;;;;;;;;;;;;IAOa;;;;;AAPb;AACA;AAMO,IAAM,kBAAN,MAAMA,iBAAe;MACN;MAApB,YAAoB,YAAsB;AAAtB,aAAA,aAAA;AAClB,gBAAQ,IAAI,wBAAwB;MACtC;MAEA,YAAS;AACP,gBAAQ,IAAI,4BAA4B;AACxC,eAAO,KAAK,WAAW,IAAmB,0CAA0C;MACtF;;;;;AARW,sBAAe,WAAA;MAH3B,WAAW;QACV,YAAY;OACb;OACY,eAAe;;;",
+  "names": ["employeeService"]
+}

@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["src/app/service/auth.ts"],
+  "sourcesContent": ["import { Injectable } from '@angular/core';\nimport { HttpClient ,HttpHeaders} from '@angular/common/http';\n\nimport { EmployeeModel } from '../models/Employee';\nimport { Observable } from 'rxjs';\n@Injectable({\n  providedIn: 'root'\n})\n\nexport class Auth {\n  constructor(private http:HttpClient){}\n\n  login(data:any):Observable<any>{\n   \n    return this.http.post(\"http://localhost:8080/auth/employeeLogin\",data);\n    \n  }\n  register(data:EmployeeModel):Observable<any> {\n    console.log(data);\n    return this.http.post(\"http://localhost:8080/auth/register\",data);\n  }\n}\n"],
+  "mappings": ";;;;;;;;;;;;;;;IASa;;;;;AATb;AACA;AAQO,IAAM,OAAN,MAAMA,MAAI;MACK;MAApB,YAAoB,MAAe;AAAf,aAAA,OAAA;MAAiB;MAErC,MAAM,MAAQ;AAEZ,eAAO,KAAK,KAAK,KAAK,4CAA2C,IAAI;MAEvE;MACA,SAAS,MAAkB;AACzB,gBAAQ,IAAI,IAAI;AAChB,eAAO,KAAK,KAAK,KAAK,uCAAsC,IAAI;MAClE;;;;;AAXW,WAAI,WAAA;MAJhB,WAAW;QACV,YAAY;OACb;OAEY,IAAI;;;",
+  "names": ["Auth"]
+}

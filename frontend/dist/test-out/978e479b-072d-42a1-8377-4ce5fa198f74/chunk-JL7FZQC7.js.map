@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["angular:jit:template:src/app/Marketing/marketing.html", "angular:jit:style:src/app/Marketing/marketing.css", "src/app/Marketing/marketing.ts"],
+  "sourcesContent": ["\n<div class=\" \">\n    <!-- Live campaiang -->   \n   \n    <!-- <button type=\"button\" class=\"btn btn-primary\">Create Campaign</button>\n    <button type=\"button\" class=\"btn btn-primary\">Join Campaign</button> -->\n\n</div>", "/* src/app/Marketing/marketing.css */\n/*# sourceMappingURL=marketing.css.map */\n", "import { Component } from '@angular/core';\n\n@Component({\n  selector: 'app-marketing',\n  imports: [],\n  templateUrl: './marketing.html',\n  styleUrl: './marketing.css'\n})\nexport class Marketing {\n\n}\n"],
+  "mappings": ";;;;;;;;;;;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;;;ACAA,IAAAA;AAAA,IAAAC,kBAAA;AAAA;AAAA,IAAAD,qBAAA;AAAA;AAAA;;;ICQa;;;;;;;AARb;AAQO,IAAM,YAAN,MAAME,WAAS;;AAAT,gBAAS,WAAA;MANrB,UAAU;QACT,UAAU;QACV,SAAS,CAAA;QACT,UAAA;;OAED;OACY,SAAS;;;",
+  "names": ["marketing_default", "init_marketing", "Marketing"]
+}

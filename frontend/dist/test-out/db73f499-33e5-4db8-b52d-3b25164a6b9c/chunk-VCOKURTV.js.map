@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["src/app/service/employee-service.ts"],
+  "sourcesContent": ["import { Injectable } from '@angular/core';\nimport { HttpClient, HttpHeaders } from '@angular/common/http';\nimport { EmployeeModel } from '../models/Employee';\nimport { Observable } from 'rxjs';\n@Injectable({\n  providedIn: 'root'\n})\nexport class employeeService {\n  constructor(private httpClient: HttpClient) {\n    console.log(\"This is StudentService\");\n  }\n\n  getMyInfo(): Observable<EmployeeModel> {\n    console.log(\"In the getEmployee service\");\n    return this.httpClient.get<EmployeeModel>(\"http://localhost:8080/employee/getMyInfo\");\n  }\n \n\n}\n"],
+  "mappings": ";;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;IAOaA;;;;;AAPb;AACA;;AAA+DC,kBAAA,EAAAC,EAAA,CAAA;AAMxD,IAAMF,kBAAN,MAAMA,iBAAe;MACNG;MAApBC,YAAoBD,YAAsB;AAAAF,sBAAA,EAAAI,EAAA,CAAA;AAAAJ,sBAAA,EAAAC,EAAA,CAAA;AAAtB,aAAAC,aAAAA;AAAsBF,sBAAA,EAAAC,EAAA,CAAA;AACxCI,gBAAQC,IAAI,wBAAwB;MACtC;MAEAC,YAAS;AAAAP,sBAAA,EAAAI,EAAA,CAAA;AAAAJ,sBAAA,EAAAC,EAAA,CAAA;AACPI,gBAAQC,IAAI,4BAA4B;AAAEN,sBAAA,EAAAC,EAAA,CAAA;AAC1C,eAAO,KAAKC,WAAWM,IAAmB,0CAA0C;MACtF;;;;;;;;;;AARWT,sBAAeU,WAAA,CAH3BC,WAAW;MACVC,YAAY;KACb,CAAC,GACWZ,eAAe;;;",
+  "names": ["employeeService", "cov_mo5ngg86u", "s", "httpClient", "constructor", "f", "console", "log", "getMyInfo", "get", "__decorate", "Injectable", "providedIn"]
+}

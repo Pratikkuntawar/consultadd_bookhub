@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["src/app/service/hr.spec.ts"],
+  "sourcesContent": ["import { TestBed } from '@angular/core/testing';\n\nimport { HrService } from './hr';\n\ndescribe('Hr', () => {\n  let service: HrService;\n\n  beforeEach(() => {\n    TestBed.configureTestingModule({});\n    service = TestBed.inject(HrService);\n  });\n\n  it('should be created', () => {\n    expect(service).toBeTruthy();\n  });\n});\n"],
+  "mappings": ";;;;;;;;;;;;;AAAA;AAEA;AAEA,SAAS,MAAM,MAAK;AAClB,MAAI;AAEJ,aAAW,MAAK;AACd,YAAQ,uBAAuB,CAAA,CAAE;AACjC,cAAU,QAAQ,OAAO,SAAS;EACpC,CAAC;AAED,KAAG,qBAAqB,MAAK;AAC3B,WAAO,OAAO,EAAE,WAAU;EAC5B,CAAC;AACH,CAAC;",
+  "names": []
+}

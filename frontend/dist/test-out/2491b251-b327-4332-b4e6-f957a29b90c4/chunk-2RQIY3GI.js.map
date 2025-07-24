@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["src/app/validators/emailValidator.ts"],
+  "sourcesContent": ["import { AbstractControl, ValidationErrors, ValidatorFn } from \"@angular/forms\";\n\nexport default function EmailDomainValidator(allowedDomains: string[]): ValidatorFn {\n  return (control: AbstractControl): ValidationErrors | null => {\n    const email = control.value;\n\n    if (!email) return null;\n\n    if (/^\\d/.test(email)) {\n      return {\n        emailStartError: {\n          message: \"Email can't start with a number\"\n        }\n      };\n    }\n\n    const domain = email.substring(email.lastIndexOf('@') + 1).toLowerCase();\n    const isValidDomain = allowedDomains.includes(domain);\n\n    if (!isValidDomain) {\n      return {\n        emailDomainError: {\n          message: `Email domain must be one of: ${allowedDomains.join(', ')}`\n        }\n      };\n    }\n\n    return null;\n  };\n}\n"],
+  "mappings": ";;;;;AAEc,SAAP,qBAAsC,gBAAwB;AACnE,SAAO,CAAC,YAAqD;AAC3D,UAAM,QAAQ,QAAQ;AAEtB,QAAI,CAAC;AAAO,aAAO;AAEnB,QAAI,MAAM,KAAK,KAAK,GAAG;AACrB,aAAO;QACL,iBAAiB;UACf,SAAS;;;IAGf;AAEA,UAAM,SAAS,MAAM,UAAU,MAAM,YAAY,GAAG,IAAI,CAAC,EAAE,YAAW;AACtE,UAAM,gBAAgB,eAAe,SAAS,MAAM;AAEpD,QAAI,CAAC,eAAe;AAClB,aAAO;QACL,kBAAkB;UAChB,SAAS,gCAAgC,eAAe,KAAK,IAAI,CAAC;;;IAGxE;AAEA,WAAO;EACT;AACF;AA3BA;;;;;",
+  "names": []
+}
