@@ -1,0 +1,76 @@
+<!-- <div class="modal-backdrop show">
+  <div class="modal d-block" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content text-center p-4">
+        <h5 class="modal-title">Signup</h5>
+        <form>
+          <input type="text" class="form-control mb-2" placeholder="Enter Name" />
+          <input type="email" class="form-control mb-2" placeholder="Enter Email" />
+          <input type="password" class="form-control mb-2" placeholder="Enter Password" />
+          <button type="submit" class="btn btn-primary" (click)="moveToLoginRoute()">Register</button>
+          <button type="button" class="btn btn-danger ms-2" (click)="handleClose()">Close</button>
+        </form>
+        <p class="mt-3 text-muted">
+          Already have an account? <a href="#" (click)="goToLogin()">Login here</a>
+        </p>
+      </div>
+    </div>
+  </div>
+</div> -->
+
+
+
+
+<!-- new signup form -->
+ <div class="modal-backdrop show">
+  <div class="modal d-block" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content text-center p-4 bg-dark text-light rounded custom-modal-content">
+        <h5 class="modal-title mb-4 fw-bold">Signup</h5>
+        <form (ngSubmit)="registerUser()" class="needs-validation" novalidate>
+          
+          <div class="form-group mb-3">
+            <input type="text" class="form-control text-center" placeholder="Enter Full Name" [(ngModel)]="signupData.fullName" name="fullName" required />
+          </div>
+          
+          <div class="form-group mb-3">
+            <input type="email" class="form-control text-center" placeholder="Enter Email" [(ngModel)]="signupData.email" name="email" required />
+          </div>
+          
+          <div class="form-group mb-3">
+            <input type="password" class="form-control text-center" placeholder="Enter Password" [(ngModel)]="signupData.password" name="password" required />
+          </div>
+
+          <div class="form-group mb-3">
+            <select class="form-select text-center" [(ngModel)]="signupData.role" name="role" required>
+              <option value="" disabled selected>Select Role</option>
+              <option value="BUYER">Buyer</option>
+              <option value="SELLER">Seller</option>
+            </select>
+          </div>
+
+          <div class="form-group mb-4">
+            <select class="form-select text-center" [(ngModel)]="signupData.department" name="department" required>
+              <option value="" disabled selected>Select Department</option>
+              <option value="HR">HR</option>
+              <option value="CODING">Coding</option>
+              <option value="DELIVERY">Delivery</option>
+              <option value="SALES">Sales</option>
+              <option value="MARKETING">Marketing</option>
+            </select>
+          </div>
+
+          <div class="d-grid gap-2 d-md-flex justify-content-center">
+            <button type="submit" class="btn btn-outline-primary px-4">Register</button>
+            <button type="button" class="btn btn-outline-danger px-4" (click)="handleClose()">Close</button>
+          </div>
+        </form>
+
+        <p class="mt-4 text-light small">
+          Already have an account? 
+          <a href="#" class="text-info fw-semibold" (click)="goToLogin()">Login here</a>
+        </p>
+      </div>
+    </div>
+  </div>
+</div>

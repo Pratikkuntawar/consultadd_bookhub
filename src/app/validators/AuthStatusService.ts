@@ -1,0 +1,17 @@
+// src/app/services/auth-status.service.ts
+
+import { Injectable } from '@angular/core';
+import { CookieService } from 'ngx-cookie-service';
+
+@Injectable({
+  providedIn: 'root'
+})
+export class AuthStatusService {
+
+  constructor(private cookieService: CookieService) {}
+
+  isLoggedIn(): boolean {
+    const token = this.cookieService.get('token'); // or use localStorage.getItem('token')
+    return !!token;
+  }
+}

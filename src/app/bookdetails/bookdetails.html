@@ -1,0 +1,18 @@
+<div *ngIf="book" class="book-details-container" style="background-color: #000000; ">
+  <div class="book-image-section">
+    <img [src]="book.imageUrl" alt="{{ book.title }}" />
+  </div>
+  <div class="book-info-section">
+    <h1>{{ book.title }}</h1>
+    <h3>Author: {{ book.author }}</h3>
+    <p class="description">{{ book.description }}</p>
+    <p class="price">Price: ₹{{ book.price }}</p>
+
+    <div class="actions">
+      <button (click)="addToCart()" class="btn-cart ">Add to Cart</button>
+      <button (click)="addToFavorites()" class="btn-favorite">Add to Favorites</button>
+    </div>
+  </div>
+</div>
+
+

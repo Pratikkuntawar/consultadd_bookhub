@@ -1,0 +1,78 @@
+<main class="main d-flex justify-content-center align-items-center vh-100r">
+ 
+<div class="p-5 border mb-5 d-flex flex-column rounded bg-white shadow mt-5" style="min-width: 500px; max-height: 700px;">
+  
+    <form [formGroup]="empForm" (ngSubmit)="onSubmit()">
+  <h2  style="margin-bottom: 30px; text-align:center;">Register Form </h2>
+
+  <div class="d-flex align-items-center gap-5 mb-2 ">
+    <label  class="mb-0">Name</label>
+    <div class="w-100 mt-2">
+    <input id="name" type="text" formControlName="name" class="form-control w-75" placeholder="Enter your Name" ngModel>
+    <div class="text-danger  lh-sm" style="font-size: 13px;margin-left: 9px;margin-top: 2px;" *ngIf="empForm.controls['name'].invalid && (empForm.controls['name'].touched || empForm.controls['name'].dirty)">
+    <label class="text-danger" *ngIf="empForm.controls['name'].errors?.['required']">Name required</label>
+    <label class="text-danger" *ngIf="empForm.controls['name'].errors?.['minlength']">Minimum 4 length required</label>
+    </div>
+  </div>
+  </div>
+
+ <div class="d-flex align-items-center gap-5 mb-2 ">
+    <label  class="mb-0">Email</label>
+    <div class="w-100 mt-2">
+    <input id="email" type="email" formControlName="email" class="form-control w-75" placeholder="Enter your Email" ngModel>
+    <div class="text-danger lh-sm" style="font-size: 13px;margin-left: 9px;" *ngIf="empForm.controls['email'].invalid && (empForm.controls['email'].touched || empForm.controls['email'].dirty)">
+    <label class="text-danger" *ngIf="empForm.controls['email'].errors?.['required']">Email required</label>
+    <label class="text-danger" *ngIf="empForm.controls['email'].errors?.['emailStartError']">Email can't start with number</label>
+    <label class="text-danger" *ngIf="empForm.controls['email'].errors?.['emailDomainError']">Invalid Email domain</label>
+    </div>
+  </div>
+  </div>
+
+   <div class="d-flex align-items-center gap-4 mb-2 ">
+    <label  class="mb-0">Contact</label>
+     <div class="w-100 mt-2">
+    <input id="contactNo" type="text" formControlName="contactNo" class="form-control " style="width: 70%;" placeholder="Enter your Contact No." ngModel>
+      <div class="text-danger lh-sm" style="font-size: 13px;margin-left: 9px;margin-top: 2px;" *ngIf="empForm.controls['contactNo'].invalid && (empForm.controls['contactNo'].touched || empForm.controls['contactNo'].dirty)">
+  <label class="text-danger" *ngIf="empForm.controls['contactNo'].errors?.['pattern']">Contact No. cannot be  other than digit</label>
+        <label class="text-danger" *ngIf="empForm.controls['contactNo'].errors?.['required']">Contact No. required</label>
+    <label class="text-danger" *ngIf="empForm.controls['contactNo'].errors?.['minlength']">Contact No. must be at least 10 digits</label>
+    <label class="text-danger" *ngIf="empForm.controls['contactNo'].errors?.['maxlength']">Contact No. cannot be more than 10 digits</label>
+    </div>
+  </div>
+  </div>
+
+  <div class="d-flex align-items-center gap-3">
+    <label for="password" class="mb-0">Password</label>
+       <div class="w-100 mt-2">
+    <input id="password" type="password" formControlName="password" class="form-control w-75" placeholder="Enter your password" ngModel>
+   <div class="text-danger lh-sm" style="font-size: 13px;margin-left: 9px;margin-top: 2px;" *ngIf="empForm.controls['password'].invalid && (empForm.controls['password'].touched || empForm.controls['password'].dirty)">
+  <label class="text-danger" *ngIf="empForm.controls['password'].errors?.['pattern']">Contact No. cannot be  other than digit</label>
+        <label class="text-danger" *ngIf="empForm.controls['password'].errors?.['required']">password. required</label>
+    <label class="text-danger" *ngIf="empForm.controls['password'].errors?.['minlength']">password at least 6 size</label>
+    </div>
+  </div>
+  </div>
+
+   <div class="d-flex align-items-center gap-3">
+    <label for="password" class="mb-0">Register As : </label>
+       <div class="w-100 mt-2">
+    <input id="password" type="password" formControlName="role" class="form-control w-75" placeholder="Enter your password" ngModel>
+   <div class="text-danger lh-sm" style="font-size: 13px;margin-left: 9px;margin-top: 2px;" *ngIf="empForm.controls['password'].invalid && (empForm.controls['password'].touched || empForm.controls['password'].dirty)">
+  <label class="text-danger" *ngIf="empForm.controls['password'].errors?.['pattern']">Contact No. cannot be  other than digit</label>
+        <label class="text-danger" *ngIf="empForm.controls['password'].errors?.['required']">password. required</label>
+    <label class="text-danger" *ngIf="empForm.controls['password'].errors?.['minlength']">password at least 6 size</label>
+    </div>
+  </div>
+  </div>
+
+   
+<div class="row m-5">
+ <button class="btn btn-primary flex-grow-1 px-3" type="submit" [disabled]="empForm.invalid">Register</button>
+  <h3 class="my-3 w-100 h-100" style="text-align: center;">Or</h3>
+ <button class="btn btn-primary flex-grow-1 px-3" type="button" [routerLink]="['/login']"   >Login</button>
+ </div>
+
+</form>
+</div>
+
+</main>
