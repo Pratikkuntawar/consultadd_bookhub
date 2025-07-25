@@ -1,0 +1,77 @@
+<!-- <div class="home-container" style="background-color: #000000; color: #ffffff; height: 100vh;">
+  <div class="home-left-content">
+    <h1 class="home-title text-6xl font-semibold text-yellow-100" style="color:#fef9c3">
+      Welcome to the Admin Dashboard
+    </h1>
+    <p class="home-description text-xl" style="color:#d4d4d8">
+      Manage users, monitor activity, add new books, and keep your bookstore running smoothly. This is your control center for everything.
+    </p>
+    <small class="home-quote text-xl" style="color:#d4d4d8">
+      “Leadership is not about being in charge. It’s about taking care of those in your charge.”
+    </small>
+    <br />
+    <button class="home-button mt-4 explore-button" (click)="movetoadminsignup()">
+      Register New Admin
+    </button>
+  </div>
+  <div class="home-right">
+    <img src="/protection.png"  alt="Admin Panel Illustration" />
+  </div>
+</div> -->
+
+
+
+<!-- new admin -->
+<!-- Admin Navbar -->
+<nav class="navbar navbar-expand-lg navbar-dark px-4" style="background-color: #1a1a1a;">
+  <a class="navbar-brand text-white" href="#">
+    Admin Panel
+  </a>
+
+  <button class="navbar-toggler" type="button" (click)="toggleMenu()">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" [ngClass]="{ 'show': isMenuOpen }" id="adminNavbar">
+    <ul class="navbar-nav mx-auto">
+      <li class="nav-item mx-2">
+        <a class="nav-link text-light" routerLink="/admin/view" routerLinkActive="active">View</a>
+      </li>
+      <li class="nav-item mx-2">
+        <a class="nav-link text-light" routerLink="/admin/book-management" routerLinkActive="active">Book Management</a>
+      </li>
+      <li class="nav-item mx-2">
+        <a class="nav-link text-light" routerLink="/admin/donations" routerLinkActive="active">Donations</a>
+      </li>
+      <li class="nav-item mx-2">
+        <a class="nav-link text-light" routerLink="/admin/book-requests" routerLinkActive="active">Book Requests</a>
+      </li>
+    </ul>
+
+    <!-- Optional logout -->
+    <button class="btn btn-danger" (click)="onLogout()">Logout</button>
+  </div>
+</nav>
+
+<!-- Admin Dashboard Content -->
+<div class="home-container" style="background-color: #000000; color: #ffffff; height: 100vh;">
+  <div class="home-left-content">
+    <h1 class="home-title text-6xl font-semibold text-yellow-100" style="color:#fef9c3">
+      Welcome to the Admin Dashboard
+    </h1>
+    <p class="home-description text-xl" style="color:#d4d4d8">
+      Manage users, monitor activity, add new books, and keep your bookstore running smoothly. This is your control center for everything.
+    </p>
+    <!-- <small class="home-quote text-xl" style="color:#d4d4d8">
+      “Leadership is not about being in charge. It’s about taking care of those in your charge.”
+    </small> -->
+    <br />
+    <button class="home-button mt-4 explore-button" (click)="movetoadminsignup()">
+      Register New Admin
+    </button>
+  </div>
+  <div class="home-right">
+    <img src="/protection.png" alt="Admin Panel Illustration" />
+  </div>
+</div>
+

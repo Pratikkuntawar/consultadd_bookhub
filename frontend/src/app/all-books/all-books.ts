@@ -13,16 +13,17 @@ import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Router, RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-all-books',
-  imports: [RouterModule,CommonModule],
+  imports: [RouterModule,CommonModule,FormsModule],
   templateUrl: './all-books.html',
   styleUrls: ['./all-books.css']
 })
 export class AllBooksComponent implements OnInit {
   books: any[] = [];
-
+  searchQuery: string = '';
   constructor(private http: HttpClient, private router: Router) {}
 
   ngOnInit(): void {
@@ -113,5 +114,16 @@ export class AllBooksComponent implements OnInit {
 
   handleBookClick(bookId: string) {
     this.router.navigate(['/book', bookId]);
+  }
+   filteredBooks() {
+    if (!this.searchQuery) {
+      return this.books;
+    }
+
+    const query = this.searchQuery.toLowerCase();
+    return this.books.filter(book =>
+      book.title.toLowerCase().includes(query) ||
+      book.author.toLowerCase().includes(query)
+    );
   }
 }

@@ -1,14 +1,26 @@
-<div class="book-container" style="background-color: #000000">
-  <div
-    class="book-card"
-    *ngFor="let book of books"
-    (click)="handleBookClick(book._id)"
-    style="cursor: pointer"
-  >
-    <img [src]="book.imageUrl" [alt]="book.title" class="book-image" />
-    <h3 class="text-light book-title">{{ book.title }}</h3>
-    <p class="text-light book-author">Author: {{ book.author }}</p>
-    <p class="text-light book-price">₹{{ book.price }}</p>
+
+
+
+<div class="book-container py-3" style="background-color: #000000">
+  <input
+    type="text"
+    class="form-control mb-4"
+    placeholder="Search by title or author"
+    [(ngModel)]="searchQuery"
+  />
+
+  <div class="book-container">
+    <div
+      class="book-card"
+      *ngFor="let book of filteredBooks()"
+      (click)="handleBookClick(book._id)"
+      style="cursor: pointer"
+    >
+      <img [src]="book.imageUrl" [alt]="book.title" class="book-image" />
+      <h3 class="text-light book-title">{{ book.title }}</h3>
+      <p class="text-light book-author">Author: {{ book.author }}</p>
+      <p class="text-light book-price">₹{{ book.price }}</p>
+    </div>
   </div>
 </div>
 

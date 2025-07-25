@@ -1,4 +1,4 @@
-<div class="modal-backdrop show">
+<!-- <div class="modal-backdrop show">
   <div class="modal d-block" tabindex="-1">
     <div class="modal-dialog modal-dialog-centered">
       <div class="modal-content custom-login-modal text-center p-4">
@@ -19,6 +19,48 @@
             type="button"
             class="btn btn-outline-light ms-2 fw-bold"
             onclick="handleClose()"
+          >
+            Close
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div> -->
+<!-- new code -->
+<div class="modal-backdrop show">
+  <div class="modal d-block" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content custom-login-modal text-center p-4">
+        <h5 class="modal-title text-white mb-3">Login</h5>
+        <form (ngSubmit)="onSubmit()" #loginForm="ngForm">
+          <input
+            type="email"
+            class="form-control mb-3 dark-input"
+            placeholder="Enter Email "
+            name="email"
+            [(ngModel)]="loginData.email"
+            required
+          />
+          <input
+            type="password"
+            class="form-control mb-3 dark-input"
+            placeholder="Enter Password"
+            name="password"
+            [(ngModel)]="loginData.password"
+            required
+          />
+          <button
+            type="submit"
+            class="btn btn-primary fw-bold"
+            [disabled]="!loginForm.form.valid"
+          >
+            Login
+          </button>
+          <button
+            type="button"
+            class="btn btn-outline-light ms-2 fw-bold"
+            (click)="handleClose()"
           >
             Close
           </button>
