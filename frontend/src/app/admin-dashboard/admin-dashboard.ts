@@ -16,6 +16,24 @@ constructor(private http: HttpClient, private router: Router) {}
 movetoadminsignup(){
   this.router.navigate(['/admin-signup']);
 }
+movetoviewallusers(){
+ this.router.navigate(['/admin-getallusers']); 
+}
+movetosearchuserbyid(){
+  this.router.navigate(['/admin-searchbyid']);  
+}
+movetoviewalldonations(){
+  this.router.navigate(['/admin-getalldonations']); 
+}
+movetoupdatedonations(){
+  this.router.navigate(['/admin-updatedonations']); 
+}
+movetoviewallbookrequest(){
+ this.router.navigate(['/admin-movetoviewallbookrequest']);  
+}
+movetoupdatebookrequest(){
+ this.router.navigate(['/admin-movetoupdatebookrequest']);  
+}
 toggleMenu() {
     this.isMenuOpen = !this.isMenuOpen;
   }

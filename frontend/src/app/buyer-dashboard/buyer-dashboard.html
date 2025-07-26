@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-lg navbar-dark px-4" style="background-color: #1a1a1a;">
   <a class="navbar-brand text-white" href="#">
-    Buyer Panel
+    Buyer Dashboard
   </a>
 
   <button class="navbar-toggler" type="button" (click)="toggleMenu()">
@@ -10,17 +10,24 @@
   <div class="collapse navbar-collapse" [ngClass]="{ 'show': isMenuOpen }" id="adminNavbar">
     <ul class="navbar-nav mx-auto">
       <li class="nav-item mx-2">
-        <a class="nav-link text-light" routerLink="/admin/view" routerLinkActive="active">View</a>
+        <a class="nav-link text-light" routerLink="/admin/view" (click)="browsebooks()">Browse Books</a>
       </li>
+      <!-- <li class="nav-item mx-2">
+        <a class="nav-link text-light" routerLink="/admin/book-management" routerLinkActive="active">Add To Cart</a>
+      </li> -->
+      <!-- <li class="nav-item mx-2">
+        <a class="nav-link text-light" routerLink="/admin/donations" routerLinkActive="active">Place Order</a>
+      </li> -->
+      <!-- <li class="nav-item mx-2">
+        <a class="nav-link text-light" routerLink="/admin/book-requests" routerLinkActive="active">Track Order</a>
+      </li> -->
+      <!-- <li class="nav-item mx-2">
+        <a class="nav-link text-light" routerLink="/admin/book-requests" routerLinkActive="active">Bookmark</a>
+      </li> -->
       <li class="nav-item mx-2">
-        <a class="nav-link text-light" routerLink="/admin/book-management" routerLinkActive="active">Book Management</a>
+        <a class="nav-link text-light" routerLink="/admin/book-requests" (click)="requestbook()">Request Books</a>
       </li>
-      <li class="nav-item mx-2">
-        <a class="nav-link text-light" routerLink="/admin/donations" routerLinkActive="active">Donations</a>
-      </li>
-      <li class="nav-item mx-2">
-        <a class="nav-link text-light" routerLink="/admin/book-requests" routerLinkActive="active">Book Requests</a>
-      </li>
+
     </ul>
 
     <!-- Optional logout -->
@@ -41,12 +48,12 @@
       “Leadership is not about being in charge. It’s about taking care of those in your charge.”
     </small> -->
     <br />
-    <button class="home-button mt-4 explore-button" (click)="seecart()">
+    <button class="home-button mt-4 explore-button" (click)="browseallbooks()">
       Buy New Book
     </button>
   </div>
   <div class="home-right">
-    <img src="/businessman.png" alt="Buyer Illustration" />
+    <img src="/seller.png" alt="Buyer Illustration" />
   </div>
 </div>
 

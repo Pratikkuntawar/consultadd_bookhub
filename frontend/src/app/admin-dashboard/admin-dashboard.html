@@ -25,7 +25,7 @@
 <!-- Admin Navbar -->
 <nav class="navbar navbar-expand-lg navbar-dark px-4" style="background-color: #1a1a1a;">
   <a class="navbar-brand text-white" href="#">
-    Admin Panel
+    Admin Dashboard
   </a>
 
   <button class="navbar-toggler" type="button" (click)="toggleMenu()">
@@ -34,17 +34,73 @@
 
   <div class="collapse navbar-collapse" [ngClass]="{ 'show': isMenuOpen }" id="adminNavbar">
     <ul class="navbar-nav mx-auto">
-      <li class="nav-item mx-2">
-        <a class="nav-link text-light" routerLink="/admin/view" routerLinkActive="active">View</a>
-      </li>
-      <li class="nav-item mx-2">
+      <!-- <li class="nav-item mx-2">
+        <a class="nav-link text-light" routerLink="/admin/view" routerLinkActive="active">Employee Management</a>
+      </li> -->
+      <li class="nav-item dropdown mx-2">
+  <a
+    class="nav-link dropdown-toggle text-light"
+    href="#"
+    role="button"
+    data-bs-toggle="dropdown"
+    aria-expanded="false"
+  >
+    Employee Management
+  </a>
+  <ul class="dropdown-menu">
+    <li>
+      <a class="dropdown-item" style="cursor: pointer;" (click)="movetoviewallusers()">Get All Users</a>
+    </li>
+    <li>
+      <a class="dropdown-item" style="cursor: pointer;" (click)="movetosearchuserbyid()">Search By User ID</a>
+    </li>
+  </ul>
+</li>
+
+      <!-- <li class="nav-item mx-2">
         <a class="nav-link text-light" routerLink="/admin/book-management" routerLinkActive="active">Book Management</a>
-      </li>
+      </li> -->
+      <li class="nav-item dropdown mx-2">
+  <a
+    class="nav-link dropdown-toggle text-light"
+    href="#"
+    role="button"
+    data-bs-toggle="dropdown"
+    aria-expanded="false"
+  >
+    Donations
+  </a>
+  <ul class="dropdown-menu">
+    <li>
+      <a class="dropdown-item" style="cursor: pointer;" (click)="movetoviewalldonations()">Get All Donations</a>
+    </li>
+    <li>
+      <a class="dropdown-item" style="cursor: pointer;" (click)="movetoupdatedonations()">Update Donation status</a>
+    </li>
+  </ul>
+</li>
+
+      <li class="nav-item dropdown mx-2">
+  <a
+    class="nav-link dropdown-toggle text-light"
+    href="#"
+    role="button"
+    data-bs-toggle="dropdown"
+    aria-expanded="false"
+  >
+    Book Request
+  </a>
+  <ul class="dropdown-menu">
+    <li>
+      <a class="dropdown-item" style="cursor: pointer;" (click)="movetoviewallbookrequest()">Get All Book Request</a>
+    </li>
+    <li>
+      <a class="dropdown-item" style="cursor: pointer;" (click)="movetoupdatebookrequest()">Update Book Request</a>
+    </li>
+  </ul>
+</li>
       <li class="nav-item mx-2">
-        <a class="nav-link text-light" routerLink="/admin/donations" routerLinkActive="active">Donations</a>
-      </li>
-      <li class="nav-item mx-2">
-        <a class="nav-link text-light" routerLink="/admin/book-requests" routerLinkActive="active">Book Requests</a>
+        <a class="nav-link text-light" routerLink="/admin/review-transaction" routerLinkActive="active">Review Transactions</a>
       </li>
     </ul>
 

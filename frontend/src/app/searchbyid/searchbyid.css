@@ -1,0 +1,107 @@
+body, .home-container {
+  background-color: #000000;
+  min-height: 100vh;
+  padding: 1rem;
+}
+
+/* Style each card */
+.user-card {
+  display: flex;
+  align-items: center;
+  background-color: #ffffff;
+  color: #000000;
+  border-radius: 12px;
+  padding: 16px;
+  margin-bottom: 16px;
+  box-shadow: 0 4px 8px rgba(255, 255, 255, 0.1);
+  width: 100%;
+}
+
+/* Image styling */
+.user-image {
+  width: 80px;
+  height: 80px;
+  margin-right: 20px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+/* Text section */
+.user-details h5 {
+  margin: 0 0 8px 0;
+  font-size: 1.25rem;
+}
+
+.user-details p {
+  margin: 2px 0;
+}
+/* new css */
+
+.search-bar {
+  width: 50%;
+  padding: 10px;
+  margin-bottom: 20px;
+  font-size: 16px;
+  border: none;
+  border-radius: 8px;
+  justify-content: center;
+}
+/* This centers the search bar horizontally */
+.search-bar {
+  width: 40%;
+  padding: 10px;
+  margin-bottom: 20px;
+  font-size: 16px;
+  border: none;
+  border-radius: 8px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  border-color: green;
+  box-shadow: 2px solid red;
+}
+
+.user-card {
+  background-color: #fff;
+  border-radius: 10px;
+  padding: 20px;
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  box-shadow: 0 4px 8px rgba(255, 255, 255, 0.2);
+}
+
+.user-image {
+  width: 80px;
+  height: 80px;
+  margin-right: 20px;
+}
+
+.user-details h5 {
+  margin: 0 0 10px;
+}
+input::placeholder{
+  text-align: center;
+}
+
+
+
+
+.action-buttons {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  display: flex;
+  gap: 15px;
+}
+
+.action-icon {
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.action-icon:hover {
+  transform: scale(1.2);
+}

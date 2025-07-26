@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-lg navbar-dark px-4" style="background-color: #1a1a1a;">
   <a class="navbar-brand text-white" href="#">
-    Seller Panel
+    Seller Dashboard
   </a>
 
   <button class="navbar-toggler" type="button" (click)="toggleMenu()">
@@ -10,16 +10,16 @@
   <div class="collapse navbar-collapse" [ngClass]="{ 'show': isMenuOpen }" id="adminNavbar">
     <ul class="navbar-nav mx-auto">
       <li class="nav-item mx-2">
-        <a class="nav-link text-light" routerLink="/admin/view" routerLinkActive="active">View</a>
+        <a class="nav-link text-light" routerLink="/admin/view" routerLinkActive="active">Upload Books</a>
       </li>
       <li class="nav-item mx-2">
-        <a class="nav-link text-light" routerLink="/admin/book-management" routerLinkActive="active">Book Management</a>
+        <a class="nav-link text-light" routerLink="/admin/book-management" routerLinkActive="active">Manage Inventory</a>
       </li>
       <li class="nav-item mx-2">
-        <a class="nav-link text-light" routerLink="/admin/donations" routerLinkActive="active">Donations</a>
+        <a class="nav-link text-light" routerLink="/admin/donations" routerLinkActive="active">Track Sales</a>
       </li>
       <li class="nav-item mx-2">
-        <a class="nav-link text-light" routerLink="/admin/book-requests" routerLinkActive="active">Book Requests</a>
+        <a class="nav-link text-light" routerLink="/admin/book-requests" routerLinkActive="active">Donations</a>
       </li>
     </ul>
 
@@ -46,6 +46,6 @@
     </button>
   </div>
   <div class="home-right">
-    <img src="/seller.png" alt="Seller Panel Illustration" />
+    <img src="/businessman.png" alt="Seller Panel Illustration" />
   </div>
 </div>

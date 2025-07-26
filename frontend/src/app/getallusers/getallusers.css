@@ -1,0 +1,59 @@
+/* .card:hover {
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  transform: translateY(-3px);
+  transition: 0.3s ease;
+}
+.home-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+  padding: 1rem;
+}
+.card-text{
+font-size:18px;
+} */
+ /* above css is for bootstrap */
+
+
+
+
+
+
+body, .home-container {
+  background-color: #000000;
+  min-height: 100vh;
+  padding: 1rem;
+}
+
+/* Style each card */
+.user-card {
+  display: flex;
+  align-items: center;
+  background-color: #ffffff;
+  color: #000000;
+  border-radius: 12px;
+  padding: 16px;
+  margin-bottom: 16px;
+  box-shadow: 0 4px 8px rgba(255, 255, 255, 0.1);
+  width: 100%;
+}
+
+/* Image styling */
+.user-image {
+  width: 80px;
+  height: 80px;
+  margin-right: 20px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+/* Text section */
+.user-details h5 {
+  margin: 0 0 8px 0;
+  font-size: 1.25rem;
+}
+
+.user-details p {
+  margin: 2px 0;
+}

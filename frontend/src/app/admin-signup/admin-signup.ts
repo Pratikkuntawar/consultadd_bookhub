@@ -11,6 +11,11 @@ import { Router } from '@angular/router';
 })
 export class AdminSignup {
 constructor(private http: HttpClient, private router: Router) {}
+showModal: boolean = true;
+
+handleClose() {
+  this.showModal = false;
+}
 
   @Output() close = new EventEmitter<void>();
   @Output() switchToLogin = new EventEmitter<void>();
@@ -24,7 +29,7 @@ constructor(private http: HttpClient, private router: Router) {}
   };
 
   registerUser() {
-    const apiUrl = 'http://localhost:8080/create-admin'; // ✅ Replace with your backend endpoint
+    const apiUrl = 'http://localhost:8080/consultadd/admin/create-admin'; // ✅ Replace with your backend endpoint
 
     this.http.post(apiUrl, this.signupData).subscribe({
       next: (response) => {

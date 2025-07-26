@@ -13,11 +13,19 @@ import { Router } from '@angular/router';
 export class BuyerDashboard {
 isMenuOpen = false;
 constructor(private http: HttpClient, private router: Router) {}
-seecart(){
-  this.router.navigate(['/Cart']);
+browseallbooks(){
+  this.router.navigate(['/browsebooks']);
+}
+requestbook(){
+  this.router.navigate(['/buyer-dashboard/requestbook']);
 }
 toggleMenu() {
     this.isMenuOpen = !this.isMenuOpen;
+  }
+
+  browsebooks(){
+  console.log("Move to all books section");
+  this.router.navigate(['/browsebooks']);  
   }
 
   onLogout() {
