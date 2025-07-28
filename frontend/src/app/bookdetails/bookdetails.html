@@ -1,18 +1,30 @@
-<div *ngIf="book" class="book-details-container" style="background-color: #000000; ">
-  <div class="book-image-section">
-    <img [src]="book.imageUrl" alt="{{ book.title }}" />
-  </div>
-  <div class="book-info-section">
-    <h1>{{ book.title }}</h1>
-    <h3>Author: {{ book.author }}</h3>
-    <p class="description">{{ book.description }}</p>
-    <p class="price">Price: ₹{{ book.price }}</p>
 
-    <div class="actions">
-      <button (click)="addToCart()" class="btn-cart ">Add to Cart</button>
-      <button (click)="addToFavorites()" class="btn-favorite">Add to Favorites</button>
+<div *ngIf="books.length > 0" class="books-container" style="background-color: #000000; color: #ffffff; padding: 2rem;">
+  <div *ngFor="let book of books" class="book-details-container" style="display: flex; gap: 2rem; margin-bottom: 2rem; border: 1px solid #333; padding: 1.5rem; border-radius: 10px; background-color: #1f1f1f;">
+    
+    <!-- Book Image -->
+    <div class="book-image-section" style="flex: 1;">
+      <img [src]="book.imageUrl" [alt]="book.title" style="width: 100%; max-width: 200px; border-radius: 8px;" />
+    </div>
+
+    <!-- Book Info -->
+    <div class="book-info-section" style="flex: 2;">
+      <h1 style="color: #fef08a;">{{ book.title }}</h1>
+      <h3>Author: {{ book.author }}</h3>
+      <p class="description">{{ book.description }}</p>
+      <p class="price" style="font-weight: bold;">Price: ₹{{ book.price }}</p>
+
+      <!-- Action Buttons -->
+      <div class="actions" style="margin-top: 1rem;">
+      <button (click)="addToCart()" class="btn-cart" style="margin-right: 1rem; padding: 0.5rem 1rem;">Add to Cart</button>
+        <button (click)="addToFavorites()" class="btn-favorite" style="padding: 0.5rem 1rem;">Add to Favorites</button>
+      </div>
     </div>
   </div>
 </div>
 
+<!-- Show message if no books -->
+<div *ngIf="books.length === 0" style="text-align: center; color: #ffffff; margin-top: 2rem;">
+  No books available.
+</div>
 

@@ -1,64 +1,19 @@
-// import { Component } from '@angular/core';
-
-// @Component({
-//   selector: 'app-signup',
-//   imports: [],
-//   templateUrl: './signup.html',
-//   styleUrl: './signup.css'
-// })
-// export class Signup {
-
-// }
-
-
-
-// import { HttpClient } from '@angular/common/http';
-// import { Component, EventEmitter, Output } from '@angular/core';
-// import { Router } from '@angular/router';
-
-// @Component({
-//   selector: 'app-signup',
-//   templateUrl: './signup.html',
-//   styleUrls: ['./signup.css']
-// })
-// export class SignupComponent {
-//   constructor(private http: HttpClient, private router: Router) {}
-//   @Output() close = new EventEmitter<void>();
-//   @Output() switchToLogin = new EventEmitter<void>();
-
-//   handleClose() {
-//     this.close.emit();
-//   }
- 
-//   moveToLoginRoute() {
-//     this.router.navigate(['/login']);
-//   }
-
-//   goToLogin() {
-//     this.switchToLogin.emit();
-//   }
-// }
-
-//new signup
-
 
 import { CommonModule } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
 import { Component, EventEmitter, Output } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { Router } from '@angular/router';
+import { Router, RouterModule } from '@angular/router';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-signup',
-  imports: [CommonModule, FormsModule],
+  imports: [CommonModule, FormsModule ],
   templateUrl: './signup.html',
   styleUrls: ['./signup.css']
 })
 export class SignupComponent {
   constructor(private http: HttpClient, private router: Router) {}
-
-  @Output() close = new EventEmitter<void>();
-  @Output() switchToLogin = new EventEmitter<void>();
 
   signupData = {
     fullName: '',
@@ -69,28 +24,93 @@ export class SignupComponent {
   };
 
   handleClose() {
-    this.close.emit();
+   this.router.navigate(['/']); 
   }
 
-  goToLogin() {
-    this.switchToLogin.emit();
-  }
+//   registerUser() {
+//     const apiUrl = 'http://localhost:8080/consultadd/auth/register'; // ✅ Replace with your backend endpoint
 
-  registerUser() {
-    const apiUrl = 'http://localhost:8080/api/auth/register'; // ✅ Replace with your backend endpoint
+//     this.http.post(apiUrl, this.signupData).subscribe({
+//       next: (response) => {
+//         console.log('Registration successful:', response);
+//         // alert('Registered successfully!');
+//         Swal.fire({
+//   icon: 'success',
+//   title: 'Success!',
+//   text: 'Regiter successfully.',
+// });
+//         //this.moveToLoginRoute();
+//         this.router.navigate(['/login']);
+//       },
+//       error: (error) => {
+//         console.error('Registration failed:', error);
+//          alert('Registration failed. Please try again.');
+//       }
+//     });
+//   }
 
-    this.http.post(apiUrl, this.signupData).subscribe({
-      next: (response) => {
-        console.log('Registration successful:', response);
-        alert('Registered successfully!');
-        this.moveToLoginRoute();
-      },
-      error: (error) => {
-        console.error('Registration failed:', error);
-        alert('Registration failed. Please try again.');
-      }
-    });
-  }
+// registerUser() {
+//   const apiUrl = 'http://localhost:8080/consultadd/auth/register';
+
+//   this.http.post(apiUrl, this.signupData).subscribe({
+//     next: (response) => {
+//       console.log('Registration successful:', response);
+
+//       // Show success alert, then navigate to login page
+//       Swal.fire({
+//         icon: 'success',
+//         title: 'Success!',
+//         text: 'Registered successfully.',
+        
+//       }).then((result) => {
+//         if (result.isConfirmed) {
+//           this.router.navigate(['/login']);
+//         }
+//       });
+//     },
+//     error: (error) => {
+//       console.error('Registration failed:', error);
+//       Swal.fire({
+//         icon: 'error',
+//         title: 'Registration Failed',
+//         text: 'Please try again.',
+//       });
+//     }
+//   });
+// }
+registerUser() {
+  const apiUrl = 'http://localhost:8080/consultadd/auth/register';
+
+  this.http.post(apiUrl, this.signupData).subscribe({
+    next: (response) => {
+      console.log('Registration successful:', response);
+
+      // Auto-close after 2 seconds and then navigate
+      Swal.fire({
+        icon: 'success',
+        title: 'Success!',
+        text: 'Registered successfully.',
+        timer: 2000,
+        showConfirmButton: false,
+        timerProgressBar: true
+      }).then(() => {
+        this.router.navigate(['/login']);
+      });
+    },
+    error: (error) => {
+      console.error('Registration failed:', error);
+      Swal.fire({
+        icon: 'error',
+        title: 'Registration Failed',
+        text: 'Please try again.',
+        timer: 2000,
+        showConfirmButton: false,
+        timerProgressBar: true
+      });
+    }
+  });
+}
+
 
   moveToLoginRoute() {
     this.router.navigate(['/login']);

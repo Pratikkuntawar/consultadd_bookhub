@@ -1,97 +1,38 @@
-<!-- <div class="home-container" style="background-color: #000000; color: #ffffff; height: 100vh;">
-  <div class="home-left-content">
-    <h1 class="home-title text-6xl font-semibold text-yellow-100" style="color:#fef9c3">
-      Welcome to Book
-    </h1>
-    <p class="home-description text-xl" style="color:#d4d4d8">
-      Your one-stop destination to explore, discover, and fall in love with books from every genre. Curated collections, trending titles, and handpicked recommendations await you.
-    </p>
-    <small class="home-quote text-xl" style="color:#d4d4d8">
-      “A room without books is like a body without a soul.”
-    </small>
-    <br />
-    <button class="home-button mt-4 explore-button" (click)="movetoAllBooks()">
-      Start Exploring
-    </button>
-  </div>
-  <div class="home-right">
-    <img src="/library-books.jpg" alt="Hero" />
-  </div>
-</div> -->
-<!-- new home -->
- <!-- Navbar -->
+
 <nav class="navbar navbar-expand-lg navbar-light px-4" style="background-color: #1a1a1a; color: #ffffff">
   <a class="navbar-brand" href="#">
-    <!-- <img src="/Consultadd_Logo.png" alt="Logo" width="250" height="60"> -->
+    <img src="/Consultadd_Logo.png" alt="Logo" width="250" height="60">
   </a>
 
   <button class="navbar-toggler" type="button" (click)="toggleMenu()">
     <span class="navbar-toggler-icon"></span>
   </button>
 
-  <!-- Signup button for small devices -->
+
   <div class="d-lg-none ms-auto">
     <button class="btn btn-primary my-2" type="button" (click)="onSignupClick()">Signup</button>
   </div>
 
   <div class="collapse navbar-collapse" [ngClass]="{ 'show': isMenuOpen }" id="navbarContent">
     <ul class="navbar-nav mx-auto align-items-center">
-      <li class="nav-item">
-        <a class="nav-link text-light" routerLink="/">Home</a>
-      </li>
-      <li class="nav-item ms-3">
-        <a class="nav-link text-light" href="#" (click)="handleProtectedRoute($event)">About</a>
-      </li>
-      <!-- <li class="nav-item ms-3">
-        <a class="nav-link text-light" routerLink="/allbooks">All Books</a>
-      </li> -->
-      <li class="nav-item ms-3" (click)="navigateToBooks()" style="cursor: pointer;">
-  <span class="nav-link text-light">All Books</span>
-</li>
+
 
     </ul>
 
-    <!-- Show Signup if not logged in -->
-    <button *ngIf="!authService.isLoggedIn" class="btn btn-primary" (click)="onSignupClick()">Signup</button>
-
-    <!-- Show Profile and Cart if logged in -->
-    <div *ngIf="authService.isLoggedIn">
-      <a class="nav-link" routerLink="/cart">Cart</a>
-      <div class="dropdown">
-        <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Profile</a>
-        <ul class="dropdown-menu">
-          <li><a class="dropdown-item" routerLink="/profile">My Profile</a></li>
-          <li><a class="dropdown-item" (click)="onLogout()">Logout</a></li>
-        </ul>
-      </div>
-    </div>
+    <button  class="btn btn-success" (click)="onSignupClick()">Signup</button>
   </div>
 </nav>
 
-<!-- Unauthorized Modal -->
-<div *ngIf="showUnauthorized" class="modal-backdrop show" style="z-index: 1050;">
-  <div class="modal d-block" tabindex="-1" style="background-color: rgba(0, 0, 0, 0.5);">
-    <div class="modal-dialog modal-dialog-centered">
-      <div class="modal-content text-center p-4">
-        <h5 class="modal-title">Unauthorized</h5>
-        <p>You need to log in to access this page.</p>
-        <button class="btn btn-danger" (click)="closeUnauthorized()">Close</button>
-      </div>
-    </div>
-  </div>
-</div>
 
-<!-- Signup Modal -->
 <app-signup *ngIf="showSignupModal" (switchToLogin)="openLoginModal()" (close)="closeSignupModal()"></app-signup>
 
-<!-- Login Modal -->
 <app-login *ngIf="showLoginModal" (close)="closeLoginModal()"></app-login>
 
 <!-- Home Page Content -->
 <div class="home-container" style="background-color: #000000; color: #ffffff; height: 100vh;">
   <div class="home-left-content">
     <h1 class="home-title text-6xl font-semibold text-yellow-100" style="color:#fef9c3">
-      Welcome to Book
+      Welcome to BookStore
     </h1>
     <p class="home-description text-xl" style="color:#d4d4d8">
       Your one-stop destination to explore, discover, and fall in love with books from every genre. Curated collections, trending titles, and handpicked recommendations await you.
@@ -100,11 +41,8 @@
       “A room without books is like a body without a soul.”
     </small>
     <br />
-    <button class="home-button mt-4 explore-button" (click)="movetoAllBooks()">
-      Start Exploring
-    </button>
   </div>
   <div class="home-right">
-    <img src="/library-books.jpg" alt="Hero" />
+    <img src="/finger.png" alt="Hero" />
   </div>
 </div>

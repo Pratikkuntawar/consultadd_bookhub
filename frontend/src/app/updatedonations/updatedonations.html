@@ -1,57 +1,40 @@
-<!-- <div class="home-container" style="background-color: #000; min-height: 100vh; padding: 20px;">
-  <input
-    [(ngModel)]="searchId"
-    (keyup.enter)="searchUser()"
-    type="number"
-    placeholder="Enter User ID"
-    class="search-bar"
-  />
-
-  <div *ngFor="let user of filteredUsers" class="user-card">
-    <img src="/seller.png" alt="User" class="user-image" />
-    <div class="user-details">
-      <h5>{{ user.name }}</h5>
-      <p>🧑‍💼 Book ID: {{ user.id }}</p>
-      <p>📧 Email: {{ user.email }}</p>
-      <p>📱 Department: {{ user.department }}</p>
-      <p>🧑‍💼 Role: {{ user.role }}</p>
-      
-    </div>
-  </div>
-</div> -->
-
 
 <div class="home-container" style="background-color: #000; min-height: 100vh; padding: 20px;">
   <input
     [(ngModel)]="searchId"
     (keyup.enter)="searchUser()"
     type="number"
-    placeholder="Enter User ID"
+    placeholder="Enter Donation ID"
     class="search-bar"
   />
-<div *ngFor="let user of filteredUsers" class="user-card">
-  <img src="/seller.png" alt="User" class="user-image" />
-  <div class="user-details">
-    <h5>{{ user.name }}</h5>
-    <p>🧑‍💼 Book ID: {{ user.id }}</p>
-    <p>📧 Email: {{ user.email }}</p>
-    <p>📱 Department: {{ user.department }}</p>
-    <p>🧑‍💼 Role: {{ user.role }}</p>
 
-    <div class="action-buttons">
-      <img
-        src="/checked.png"
-        alt="Approve"
-        class="action-icon"
-        (click)="approveRequest(user.id)"
-      />
-      <img
-        src="/delete-button.png"
-        alt="Reject"
-        class="action-icon"
-        (click)="rejectRequest(user.id)"
-      />
+  <div *ngFor="let donation of filteredUsers">
+    <!-- Show card only if donation status is PENDING -->
+    <div *ngIf="donation.status === 'PENDING'" class="user-card">
+      <img src="/books.webp" alt="User" class="user-image" />
+      <div class="user-details">
+        <h5>Book Title : {{ donation.title }}</h5>
+        <p>🧑‍💼 Donation ID: {{ donation.id }}</p>
+        <p>📧 Author: {{ donation.author }}</p>
+        <p>📱 PDF Url: {{ donation.pdfUrl }}</p>
+        <p>🖼️ Image Url: {{ donation.imageUrl }}</p>
+        <p>⏳ Status:{{donation.status}}</p>
+  
+      </div>
+            <div class="action-buttons">
+          <img
+            src="/checked.png"
+            alt="Approve"
+            class="action-icon"
+            (click)="approveRequest(donation.id)"
+          />
+          <img
+            src="/delete-button.png"
+            alt="Reject"
+            class="action-icon"
+            (click)="rejectRequest(donation.id)"
+          />
+        </div>
     </div>
   </div>
-</div>
 </div>

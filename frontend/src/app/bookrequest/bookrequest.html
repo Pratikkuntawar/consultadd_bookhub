@@ -1,0 +1,53 @@
+
+
+
+<div class="modal-background d-flex justify-content-center align-items-center">
+  <div class="form-modal pop-out">
+    <h2 class="text-center mb-4">📚 Create Book Request</h2>
+    <form (ngSubmit)="submitRequest()" #form="ngForm">
+      <div class="mb-3">
+        <label class="form-label">Title:</label>
+        <input
+          class="form-control"
+          name="title"
+          [(ngModel)]="bookRequest.title"
+          required
+        />
+      </div>
+
+      <div class="mb-3">
+        <label class="form-label">Author:</label>
+        <input
+          class="form-control"
+          name="author"
+          [(ngModel)]="bookRequest.author"
+          required
+        />
+      </div>
+
+      <div class="mb-3">
+        <label class="form-label">Reason:</label>
+        <textarea
+          class="form-control"
+          name="reason"
+          [(ngModel)]="bookRequest.reason"
+          required
+        ></textarea>
+      </div>
+
+      <input
+        type="hidden"
+        name="requesterId"
+        [(ngModel)]="bookRequest.requesterId"
+        required
+      />
+
+      <div class="button-container  text-center mt-4">
+        <button class="btn btn-success px-4" type="submit">Submit</button>
+         <button class="btn btn-danger px-4" (click)="movetobuyerdashboard()">Close</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+

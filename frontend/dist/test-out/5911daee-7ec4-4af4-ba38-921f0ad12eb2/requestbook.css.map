@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["src/app/requestbook/requestbook.css"],
+  "sourcesContent": ["form {\n  background-color: #f9f9f9;\n  padding: 30px;\n  border-radius: 12px;\n  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);\n  width: 100%;\n  max-width: 500px;\n  margin: 40px auto; /* Centers the form */\n  display: flex;\n  flex-direction: column;\n  gap: 15px;\n}\n\nform input,\nform textarea,\nform select {\n  padding: 12px;\n  border-radius: 8px;\n  border: 1px solid #ccc;\n  font-size: 16px;\n  width: 100%;\n  box-sizing: border-box;\n}\n\nform button {\n  padding: 12px;\n  background-color: #4caf50;\n  color: white;\n  border: none;\n  font-size: 16px;\n  border-radius: 8px;\n  cursor: pointer;\n  transition: background-color 0.3s ease;\n}\n\nform button:hover {\n  background-color: #45a049;\n}\n.form-wrapper {\n  height: 100vh; /* Full height */\n  display: flex;\n  align-items: center; /* Vertical center */\n  justify-content: center; /* Horizontal center */\n  background-color: #eaeaea; /* Optional */\n}\n"],
+  "mappings": ";AAAA;AACE,oBAAkB;AAClB,WAAS;AACT,iBAAe;AACf,cAAY,EAAE,EAAE,KAAK,KAAK,CAAC,EAAE,CAAC,EAAE,CAAC,EAAE;AACnC,SAAO;AACP,aAAW;AACX,UAAQ,KAAK;AACb,WAAS;AACT,kBAAgB;AAChB,OAAK;AACP;AAEA,KAAK;AACL,KAAK;AACL,KAAK;AACH,WAAS;AACT,iBAAe;AACf,UAAQ,IAAI,MAAM;AAClB,aAAW;AACX,SAAO;AACP,cAAY;AACd;AAEA,KAAK;AACH,WAAS;AACT,oBAAkB;AAClB,SAAO;AACP,UAAQ;AACR,aAAW;AACX,iBAAe;AACf,UAAQ;AACR,cAAY,iBAAiB,KAAK;AACpC;AAEA,KAAK,MAAM;AACT,oBAAkB;AACpB;AACA,CAAC;AACC,UAAQ;AACR,WAAS;AACT,eAAa;AACb,mBAAiB;AACjB,oBAAkB;AACpB;",
+  "names": []
+}

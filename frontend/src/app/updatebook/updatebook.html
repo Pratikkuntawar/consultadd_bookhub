@@ -1,0 +1,48 @@
+<div class="form-container">
+  <form [formGroup]="updateForm" (ngSubmit)="onSubmit()">
+    <h2>Update Book</h2>
+
+    <label>Book ID:</label>
+    <input formControlName="id" type="number" placeholder="Enter Book ID" />
+
+    <label>Title:</label>
+    <input formControlName="title" type="text" />
+
+    <label>Author:</label>
+    <input formControlName="author" type="text" />
+
+    <label>Description:</label>
+    <textarea formControlName="description"></textarea>
+
+    <label>Book Type:</label>
+    <select formControlName="bookType">
+      <option value="PHYSICAL">PHYSICAL</option>
+      <option value="DIGITAL">DIGITAL</option>
+    </select>
+
+
+      <!-- <div class="form-group"> -->
+        <label>Department</label>
+        <select formControlName="department" required>
+          <option value="">Select Department</option>
+          <option value="CODING">CODING</option>
+          <option value="HR">HR</option>
+          <option value="SALES">SALES</option>
+          <option value="DELIVERY">DELIVERY</option>
+          <option value="MARKETING">MARKETING</option>
+        </select>
+      <!-- </div> -->
+
+    <label>PDF URL:</label>
+    <input formControlName="pdfUrl" type="text" />
+
+    <label>Image URL:</label>
+    <input formControlName="imageUrl" type="text" />
+
+        <label>Price:</label>
+    <input formControlName="price" type="number" />
+    
+    <button type="submit">Update Book</button>
+  </form>
+</div>
+

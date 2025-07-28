@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["src/app/services/auth.ts"],
+  "sourcesContent": ["import { Injectable } from '@angular/core';\n\n@Injectable({\n  providedIn: 'root'\n})\nexport class AuthService {\n  private readonly storageKey = 'isLoggedIn';\n\n  constructor() {\n    // Set default login state from localStorage\n    const storedLoginState = localStorage.getItem(this.storageKey);\n    this._isLoggedIn = storedLoginState === 'true';\n  }\n\n  private _isLoggedIn: boolean = false;\n\n  // Getter for components to access login status\n  get isLoggedIn(): boolean {\n    return this._isLoggedIn;\n  }\n\n  // Call this when user logs in\n  login(): void {\n    this._isLoggedIn = true;\n    localStorage.setItem(this.storageKey, 'true');\n  }\n\n  // Call this when user logs out\n  logout(): void {\n    this._isLoggedIn = false;\n    localStorage.removeItem(this.storageKey);\n  }\n}\n\n"],
+  "mappings": ";;;;;;;;;;;IAKa;;;;;AALb;AAKO,IAAM,cAAN,MAAMA,aAAW;MACL,aAAa;MAE9B,cAAA;AAEE,cAAM,mBAAmB,aAAa,QAAQ,KAAK,UAAU;AAC7D,aAAK,cAAc,qBAAqB;MAC1C;MAEQ,cAAuB;;MAG/B,IAAI,aAAU;AACZ,eAAO,KAAK;MACd;;MAGA,QAAK;AACH,aAAK,cAAc;AACnB,qBAAa,QAAQ,KAAK,YAAY,MAAM;MAC9C;;MAGA,SAAM;AACJ,aAAK,cAAc;AACnB,qBAAa,WAAW,KAAK,UAAU;MACzC;;;AA1BW,kBAAW,WAAA;MAHvB,WAAW;QACV,YAAY;OACb;OACY,WAAW;;;",
+  "names": ["AuthService"]
+}

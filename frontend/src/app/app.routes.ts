@@ -1,12 +1,10 @@
 import { Routes } from '@angular/router';
 import {LoginComponent} from './login/login'
 import { Home } from './home/home';
-import { Register } from './register/register';
 // import { Dashboard } from './dashboard/dashboard';
 import { authGuard } from './auth-guard';
-import { CampaignRegister } from './campaign-register/campaign-register';
-import { NavbarComponent } from './navbar/navbar';
-import { AllBooksComponent } from './all-books/all-books';
+
+import { AllBooks } from './all-books/all-books';
 import { BookDetailsComponent } from './bookdetails/bookdetails';
 import { SignupComponent } from './signup/signup';
 import { AdminDashboard } from './admin-dashboard/admin-dashboard';
@@ -21,13 +19,17 @@ import { Updatedonations } from './updatedonations/updatedonations';
 import { Allbookrequest } from './allbookrequest/allbookrequest';
 import { Updatebookrequest } from './updatebookrequest/updatebookrequest';
 import { Requestbook } from './requestbook/requestbook';
+import { AddBook } from './addbook/addbook';
+import { Updatebook } from './updatebook/updatebook';
+import { Cart } from './cart/cart';
+import { BookRequest } from './bookrequest/bookrequest';
+import { DonateBook } from './donatebook/donatebook';
 export const routes: Routes = [
     {path:'',component:Home},
-    { path: 'browsebooks', component: AllBooksComponent },
+    { path: 'browsebooks', component: AllBooks},
     { path: 'book/:id', component: BookDetailsComponent },
     { path: 'signup', component: SignupComponent },
     {path:'login',component:LoginComponent},
-    {path:"signup",component:Register},
     {path:"admin-dashboard",component:AdminDashboard},
     {path:"admin-signup",component:AdminSignup},
     {path:"buyer-dashboard",component:BuyerDashboard},
@@ -39,6 +41,11 @@ export const routes: Routes = [
     {path:"admin-movetoviewallbookrequest",component:Allbookrequest},
     {path:"admin-movetoupdatebookrequest",component:Updatebookrequest},
     {path:"buyer-dashboard/requestbook",component:Requestbook},
+    {path:"addBook",component:AddBook},
+    {path:"updateBook",component:Updatebook},
+    {path:"viewcart",component:Cart},
+    {path:"bookrequest",component:BookRequest},
+    {path:"donatebook",component:DonateBook},
     // {path:'dashboard',component:Dashboard,canActivate:[authGuard]},
-    {path:'campaiangForm',component:CampaignRegister,canActivate:[authGuard]}
+   //{path:'campaiangForm',component:CampaignRegister,canActivate:[authGuard]}
 ];

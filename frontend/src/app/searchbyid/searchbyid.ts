@@ -1,65 +1,9 @@
-// import { CommonModule } from '@angular/common';
-// import { HttpClient, HttpClientModule } from '@angular/common/http';
-// import { Component, OnInit } from '@angular/core';
-// import { FormsModule } from '@angular/forms';
-
-// @Component({
-//   selector: 'app-searchbyid',
-//   imports: [FormsModule,CommonModule,HttpClientModule],
-//   templateUrl: './searchbyid.html',
-//   styleUrl: './searchbyid.css'
-// })
-// export class Searchbyid implements OnInit{
-// users: any[] = [];
-
-//   ngOnInit(): void {
-//     // Dummy User Data
-//     this.users = [
-//       {
-//         id:1,
-//         name: 'John Doe',
-//         email: 'kuntawarpratik4@gmail.com',
-//         department: 'Coding',
-//         role: 'Admin'
-//       },
-//       {
-//         id:2,
-//         name: 'Jane Smith',
-//         email: 'ramlakhan4@gmail.com',
-//         department: 'Coding',
-//         role: 'Buyer'
-//       },
-//       {
-//         id:3,
-//         name: 'Michael Johnson',
-//         email: 'dhruvpatel@gmail.com',
-//         department: 'HR',
-//         role: 'Seller'
-//       },
-//       {
-//         id:4,
-//         name: 'Ram Kapoor',
-//         email: 'ramkapoor@gmail.com',
-//         department: 'HR',
-//         role: 'Seller'
-//       },
-//       {
-//         id:5,
-//         name: 'RohitfSharma',
-//         email: 'rohitsharma@gmail.com',
-//         department: 'Coding',
-//         role: 'ADMIN'
-//       }
-//     ];
-//   }
-// }
-
-
 
 
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 @Component({
   selector: 'app-searchbyid',
@@ -72,20 +16,32 @@ export class Searchbyid implements OnInit {
   users: any[] = [];
   filteredUsers: any[] = [];
   searchId: number | null = null;
-
+  constructor(private http: HttpClient) {}
   ngOnInit(): void {
-    this.users = [
-      { id: 1, name: 'John Doe', email: 'kuntawarpratik4@gmail.com', department: 'Coding', role: 'Admin' },
-      { id: 2, name: 'Jane Smith', email: 'ramlakhan4@gmail.com', department: 'Coding', role: 'Buyer' },
-      { id: 3, name: 'Michael Johnson', email: 'dhruvpatel@gmail.com', department: 'HR', role: 'Seller' },
-      { id: 4, name: 'Ram Kapoor', email: 'ramkapoor@gmail.com', department: 'HR', role: 'Seller' },
-      { id: 5, name: 'Rohit Sharma', email: 'rohitsharma@gmail.com', department: 'Coding', role: 'ADMIN' }
-    ];
+    const token = localStorage.getItem('token');
+    const apiUrl = 'http://localhost:8080/consultadd/admin/employees';
 
-    this.filteredUsers = [...this.users]; // Initially show all users
+    if (token) {
+      const headers = new HttpHeaders({
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${token}`
+      });
+
+      this.http.get<any[]>(apiUrl, { headers }).subscribe({
+        next: (data) => {
+          console.log('Fetched Employees:', data);
+          this.users = data;
+          this.filteredUsers = [...this.users]; // Initially show all users
+        },
+        error: (error) => {
+          console.error('Failed to fetch employees:', error);
+        }
+      });
+    } else {
+      console.warn('No token found. Please login first.');
+    }
   }
-
-  searchUser(): void {
+    searchUser(): void {
     if (this.searchId == null || this.searchId.toString().trim() === '') {
       this.filteredUsers = [...this.users]; // Show all if empty input
       return;
@@ -101,3 +57,8 @@ export class Searchbyid implements OnInit {
     }
   }
 }
+
+
+
+
+

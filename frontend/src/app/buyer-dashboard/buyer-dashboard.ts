@@ -3,6 +3,7 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-buyer-dashboard',
@@ -17,7 +18,7 @@ browseallbooks(){
   this.router.navigate(['/browsebooks']);
 }
 requestbook(){
-  this.router.navigate(['/buyer-dashboard/requestbook']);
+  this.router.navigate(['/bookrequest']);
 }
 toggleMenu() {
     this.isMenuOpen = !this.isMenuOpen;
@@ -28,10 +29,39 @@ toggleMenu() {
   this.router.navigate(['/browsebooks']);  
   }
 
-  onLogout() {
-    // Replace with actual auth service logout if needed
-    console.log('Buyer Logged Out');
-    alert('Buyer Has Been Logged Out');
-    this.router.navigate(['/']);
+  viewcart(){
+   this.router.navigate(['/viewcart']);  
+  }
+
+  donatebook(){
+  this.router.navigate(['/donatebook']);   
+  }
+
+  // onLogout() {
+  //   // Replace with actual auth service logout if needed
+  //   console.log('Buyer Logged Out');
+  //   alert('Buyer Has Been Logged Out');
+  // localStorage.removeItem('token');
+  // localStorage.removeItem('role');
+  // localStorage.removeItem('employeeId');
+  //   this.router.navigate(['/']);
+  // }
+    onLogout() {
+    console.log('Admin Logged Out');
+  
+    Swal.fire({
+      icon: 'success',
+      title: 'Logged Out',
+      text: '👋 You have been logged out successfully.',
+      confirmButtonColor: '#3085d6',
+      timer: 2000,
+      showConfirmButton: false
+    }).then(() => {
+      // Clear local storage and navigate after Swal closes
+      localStorage.removeItem('token');
+      localStorage.removeItem('role');
+      localStorage.removeItem('employeeId');
+      this.router.navigate(['/']);
+    });
   }
 }

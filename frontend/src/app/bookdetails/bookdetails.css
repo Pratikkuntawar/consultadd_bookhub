@@ -126,12 +126,6 @@ body, html {
   border: 5px solid #fef9c3;
 }
 
-/* .book-info-section {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-} */
  
 .book-info-section {
   flex: 1;

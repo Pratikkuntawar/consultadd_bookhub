@@ -1,0 +1,88 @@
+
+
+
+
+
+
+
+
+
+
+<div class="container-fluid mt-4 " >
+  <div class="d-flex justify-content-between align-items-center">
+    <h2>Your Cart</h2>
+    <button class="btn btn-danger" (click)="clearCart()">Clear Cart 🗑️</button>
+  </div>
+
+  <div *ngIf="cartItems.length === 0" class="alert alert-info text-center mt-4">
+    Add books to cart 📚
+  </div>
+
+  <div *ngFor="let item of cartItems" class="card mb-3 shadow-sm">
+    <div class="row no-gutters align-items-center">
+      
+      <!-- Image section -->
+      <div class="col-md-2">
+        <img src="/books.webp" class="img-fluid rounded-start" alt="Book Image" />
+      </div>
+
+      <!-- Details section -->
+      <div class="col-md-7">
+        <!-- <div class="card-body">
+          <h5 class="card-title">Title: {{ item.title }}</h5>
+          <p class="card-text mb-1"><strong>Author:</strong> {{ item.author }}</p>
+
+          <label for="qty">Quantity:</label>
+          <input
+            type="number"
+            min="1"
+            [(ngModel)]="item.quantity"
+            class="form-control form-control-sm"
+            style="width: 100px; display: inline-block;"
+          />
+        </div> -->
+        <div class="card-body">
+  <h5 class="card-title">Title: {{ item.title }}</h5>
+  <p class="card-text mb-1"><strong>Author:</strong> {{ item.author }}</p>
+
+  
+
+  <div class="d-flex align-items-center mb-2">
+  <label for="qty" class="me-2 mb-0"><strong>Quantity:</strong></label>
+
+  <div class="input-group" style="width: 130px;">
+    <button class="btn btn-outline-secondary" type="button" (click)="decreaseQuantity(item)">−</button>
+    <input
+      type="number"
+      min="1"
+      [(ngModel)]="item.quantity"
+      class="form-control text-center"
+    />
+    <button class="btn btn-outline-secondary" type="button" (click)="increaseQuantity(item)">+</button>
+  </div>
+</div>
+
+</div>
+
+      </div>
+
+      <!-- Update button -->
+      <!-- <div class="col-md-3 text-center">
+        <button class="btn btn-primary mt-4" (click)="updateItem(item)">
+          Update
+        </button>
+      </div> -->
+<div class="col-md-3 text-center">
+  <div class="d-flex justify-content-center align-items-center gap-2 mt-4">
+    <button class="btn btn-success" (click)="updateItem(item)">
+      Update
+    </button>
+    <button class="btn btn-outline-danger" (click)="removeItem(item)">
+      Remove 
+    </button>
+  </div>
+</div>
+
+    </div>
+  </div>
+</div>

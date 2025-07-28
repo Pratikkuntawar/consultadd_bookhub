@@ -136,6 +136,7 @@ input::placeholder{
   align-items: center;
   justify-content: space-between; /* Push left & right content */
   box-shadow: 0 4px 8px rgba(255, 255, 255, 0.2);
+    justify-content: space-between;
 }
 
 .user-image {
@@ -173,4 +174,25 @@ input::placeholder {
 
 .action-icon:hover {
   transform: scale(1.2);
+}
+.user-card { 
+  gap:50px;
+}
+.user-details{
+   align-items: center; 
+}
+.action-buttons {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* transform: translateY(-100px); */
+
+}
+
+.action-icon {
+  width: 50px;
+  height: 50px;
+  margin: 0px 5px;
+  cursor: pointer;
+ 
 }

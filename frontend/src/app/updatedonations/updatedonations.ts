@@ -1,56 +1,101 @@
-import { CommonModule } from '@angular/common';
+
+
 import { Component, OnInit } from '@angular/core';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-updatedonations',
-  imports: [FormsModule,CommonModule],
+  standalone: true,
+  imports: [FormsModule, CommonModule],
   templateUrl: './updatedonations.html',
   styleUrl: './updatedonations.css'
 })
-export class Updatedonations implements OnInit{
-users: any[] = [];
+export class Updatedonations implements OnInit {
+  //users: any[] = [];
+  donations: any[] = [];
   filteredUsers: any[] = [];
   searchId: number | null = null;
 
-  ngOnInit(): void {
-    this.users = [
-      { id: 1, name: 'John Doe', email: 'kuntawarpratik4@gmail.com', department: 'Coding', role: 'Admin' },
-      { id: 2, name: 'Jane Smith', email: 'ramlakhan4@gmail.com', department: 'Coding', role: 'Buyer' },
-      { id: 3, name: 'Michael Johnson', email: 'dhruvpatel@gmail.com', department: 'HR', role: 'Seller' },
-      { id: 4, name: 'Ram Kapoor', email: 'ramkapoor@gmail.com', department: 'HR', role: 'Seller' },
-      { id: 5, name: 'Rohit Sharma', email: 'rohitsharma@gmail.com', department: 'Coding', role: 'ADMIN' }
-    ];
+  constructor(private http: HttpClient) {}
 
-    this.filteredUsers = [...this.users]; // Initially show all users
+  ngOnInit(): void {
+  this.fetchDonations();
   }
+  
+   fetchDonations(): void {
+  const apiUrl = 'http://localhost:8080/api/donations/';
+  const token = localStorage.getItem('token'); // Get token from localStorage
+
+  if (!token) {
+    console.error('JWT token not found');
+    return;
+  }
+
+  const headers = {
+    Authorization: `Bearer ${token}`
+  };
+
+  this.http.get<any[]>(apiUrl, { headers }).subscribe({
+    next: (response) => {
+      this.donations = response;
+      console.log('All Donations:', this.donations);
+      this.filteredUsers = [...this.donations]; // Set filteredUsers after data is fetched
+    },
+    error: (error) => {
+      console.error('Error fetching donations:', error);
+    }
+  });
+}
 
   searchUser(): void {
     if (this.searchId == null || this.searchId.toString().trim() === '') {
-      this.filteredUsers = [...this.users]; // Show all if empty input
+      this.filteredUsers = [...this.donations];
       return;
     }
 
-    const found = this.users.filter(user => user.id === this.searchId);
+    const found = this.donations.filter(donation => donation.id === this.searchId);
 
     if (found.length > 0) {
       this.filteredUsers = found;
     } else {
       alert('No Result Found');
-      this.filteredUsers = [...this.users];
+      this.filteredUsers = [...this.donations];
     }
   }
 
   approveRequest(id: number) {
-  console.log('Approved ID:', id);
-  alert("cart has been approved")
-  // Call your backend API or logic to approve
-}
+    const token = localStorage.getItem('token'); // Get admin JWT token
+    const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
+    const url = `http://localhost:8080/api/donations/${id}/status`;
 
-rejectRequest(id: number) {
-  console.log('Rejected ID:', id);
-  alert("card has been deleted")
-  // Call your backend API or logic to reject
-}
+    this.http.put(url, { status: 'APPROVED' }, { headers }).subscribe({
+      next: (res) => {
+        alert('Donation Approved Successfully');
+        console.log('Success:', res);
+      },
+      error: (err) => {
+        console.error('Error approving donation:', err);
+        alert('Failed to approve donation');
+      }
+    });
+  }
 
+  rejectRequest(id: number) {
+    const token = localStorage.getItem('token'); // Get admin JWT token
+    const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
+    const url = `http://localhost:8080/api/donations/${id}/status`;
+
+    this.http.put(url, { status: 'REJECTED' }, { headers }).subscribe({
+      next: (res) => {
+        alert('Donation Rejected Successfully');
+        console.log('Success:', res);
+      },
+      error: (err) => {
+        console.error('Error rejecting donation:', err);
+        alert('Failed to reject donation');
+      }
+    });
+  }
 }

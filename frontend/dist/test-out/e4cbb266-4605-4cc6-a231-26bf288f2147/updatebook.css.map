@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["src/app/updatebook/updatebook.css"],
+  "sourcesContent": [".form-container {\n  width: 500px;\n  margin: 60px auto;\n  background-color: #ffffff;\n  padding: 30px;\n  border-radius: 12px;\n  box-shadow: 0px 0px 10px rgba(0,0,0,0.2);\n}\n\nform label {\n  display: block;\n  margin: 10px 0 5px;\n  font-weight: bold;\n}\n\nform input,\nform textarea,\nform select {\n  width: 100%;\n  padding: 8px;\n  margin-bottom: 15px;\n  border: 1px solid #ccc;\n  border-radius: 6px;\n}\n\nbutton {\n  width: 100%;\n  padding: 10px;\n  background-color: #0b5ed7;\n  color: white;\n  font-weight: bold;\n  border: none;\n  border-radius: 6px;\n  cursor: pointer;\n}\n\nbutton:hover {\n  background-color: #084298;\n}\n"],
+  "mappings": ";AAAA,CAAC;AACC,SAAO;AACP,UAAQ,KAAK;AACb,oBAAkB;AAClB,WAAS;AACT,iBAAe;AACf,cAAY,IAAI,IAAI,KAAK,KAAK,CAAC,EAAC,CAAC,EAAC,CAAC,EAAC;AACtC;AAEA,KAAK;AACH,WAAS;AACT,UAAQ,KAAK,EAAE;AACf,eAAa;AACf;AAEA,KAAK;AACL,KAAK;AACL,KAAK;AACH,SAAO;AACP,WAAS;AACT,iBAAe;AACf,UAAQ,IAAI,MAAM;AAClB,iBAAe;AACjB;AAEA;AACE,SAAO;AACP,WAAS;AACT,oBAAkB;AAClB,SAAO;AACP,eAAa;AACb,UAAQ;AACR,iBAAe;AACf,UAAQ;AACV;AAEA,MAAM;AACJ,oBAAkB;AACpB;",
+  "names": []
+}

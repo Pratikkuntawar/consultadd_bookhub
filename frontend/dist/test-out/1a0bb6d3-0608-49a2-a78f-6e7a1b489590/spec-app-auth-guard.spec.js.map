@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["src/app/auth-guard.spec.ts", "src/app/auth-guard.ts"],
+  "sourcesContent": ["import { TestBed } from '@angular/core/testing';\nimport { CanActivateFn } from '@angular/router';\n\nimport { authGuard } from './auth-guard';\n\ndescribe('authGuard', () => {\n  const executeGuard: CanActivateFn = (...guardParameters) => \n      TestBed.runInInjectionContext(() => authGuard(...guardParameters));\n\n  beforeEach(() => {\n    TestBed.configureTestingModule({});\n  });\n\n  it('should be created', () => {\n    expect(executeGuard).toBeTruthy();\n  });\n});\n", "import { CanActivateFn, Router } from '@angular/router';\nimport { CookieService } from 'ngx-cookie-service';\nimport { inject, Inject } from '@angular/core';\nexport const authGuard: CanActivateFn = (route, state) => {\n  const cookieservice=inject(CookieService);\n  const router=inject(Router)\n  const token=cookieservice.get('token');\n  if(!token){\n    router.navigate(['/login']);\n    return false;\n  }\n  return true;\n};\n"],
+  "mappings": ";;;;;;;;;;;;;;;;;;AAAA;;;ACAA;AAEA;AACO,IAAM,YAA2B,CAAC,OAAO,UAAS;AACvD,QAAM,gBAAc,OAAO,aAAa;AACxC,QAAM,SAAO,OAAO,MAAM;AAC1B,QAAM,QAAM,cAAc,IAAI,OAAO;AACrC,MAAG,CAAC,OAAM;AACR,WAAO,SAAS,CAAC,QAAQ,CAAC;AAC1B,WAAO;EACT;AACA,SAAO;AACT;;;ADPA,SAAS,aAAa,MAAK;AACzB,QAAM,eAA8B,IAAI,oBACpC,QAAQ,sBAAsB,MAAM,UAAU,GAAG,eAAe,CAAC;AAErE,aAAW,MAAK;AACd,YAAQ,uBAAuB,CAAA,CAAE;EACnC,CAAC;AAED,KAAG,qBAAqB,MAAK;AAC3B,WAAO,YAAY,EAAE,WAAU;EACjC,CAAC;AACH,CAAC;",
+  "names": []
+}

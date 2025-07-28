@@ -1,7 +1,7 @@
 
 
 
-<div class="book-container py-3" style="background-color: #000000">
+<!-- <div class="book-container py-3" style="background-color: #000000">
   <input
     type="text"
     class="form-control mb-4"
@@ -13,13 +13,82 @@
     <div
       class="book-card"
       *ngFor="let book of filteredBooks()"
-      (click)="handleBookClick(book._id)"
+      
       style="cursor: pointer"
     >
-      <img [src]="book.imageUrl" [alt]="book.title" class="book-image" />
+      <img [src]="book.imageUrl" [alt]="book.image" class="book-image" />
       <h3 class="text-light book-title">{{ book.title }}</h3>
       <p class="text-light book-author">Author: {{ book.author }}</p>
       <p class="text-light book-price">₹{{ book.price }}</p>
+      <button class="btn btn-success mt-2" >Add to Cart</button>
+    </div>
+  </div>
+</div> -->
+
+
+
+<div class="book-page py-4 px-3" style="background-color: #000000; min-height: 100vh;">
+  <!-- Search and Filter Section -->
+  <div class="d-flex flex-wrap gap-3 mb-4">
+    <input
+      type="text"
+      class="form-control"
+      placeholder="Search by title or author"
+      [(ngModel)]="searchQuery"
+      style="flex: 1; min-width: 200px;"
+    />
+
+    <select
+      class="form-select"
+      [(ngModel)]="selectedDepartment"
+      style="width: 200px;"
+    >
+      <option value="">All Departments</option>
+      <option value="CODING">Coding</option>
+      <option value="MARKETING">Marketing</option>
+      <option value="SALES">Sales</option>
+      <option value="DELIVERY">Delivery</option>
+      <option value="HR">HR</option>
+    </select>
+
+    <button class="btn btn-success" (click)="applyFilters()">Search</button>
+  </div>
+
+  <!-- Book Cards Section -->
+  <div class="d-flex flex-wrap gap-4 justify-content-center">
+    <div
+      class="card p-2"
+      *ngFor="let book of filteredBooksList"
+      style="width: 250px; background-color: #1e1e1e; border: none;"
+    >
+      <img
+        [src]="book.imageUrl"
+        [alt]="book.image"
+        class="card-img-top"
+        style="height: 240px; object-fit: cover;"
+      />
+      <div class="card-body p-2">
+        <h5 class="card-title text-light mb-1">{{ book.title }}</h5>
+        <p class="text-light mb-1" style="font-size: 14px;">Author: {{ book.author }}</p>
+        <p class="text-light mb-1" style="font-size: 14px;">Price: ₹{{ book.price }}</p>
+
+        <!-- Quantity Input -->
+        <input
+          type="number"
+          class="form-control form-control-sm mb-2"
+          min="1"
+          [(ngModel)]="book.quantity"
+          placeholder="1"
+        />
+
+        <!-- Add to Cart Button -->
+        <button
+          class="btn btn-sm btn-success w-100"
+          (click)="addToCart(book.id, book.quantity || 1)"
+        >
+          Add to Cart
+        </button>
+      </div>
     </div>
   </div>
 </div>

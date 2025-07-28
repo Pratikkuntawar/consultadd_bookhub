@@ -22,7 +22,6 @@ import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
 import { SignupComponent } from '../signup/signup';
 import { LoginComponent } from '../login/login';
-import { AuthService } from '../services/auth';
 
 @Component({
   selector: 'app-home',
@@ -32,7 +31,7 @@ import { AuthService } from '../services/auth';
   styleUrls: ['./home.css'],
 })
 export class Home {
-  constructor(public authService: AuthService, private router: Router) {}
+  constructor( private router: Router) {}
 
   isMenuOpen = false;
   showUnauthorized = false;
@@ -44,7 +43,8 @@ export class Home {
   }
 
   onSignupClick() {
-    this.showSignupModal = true;
+    //this.showSignupModal = true;
+   this.router.navigate(['/signup']);
   }
 
   openSignupModal() {
@@ -74,9 +74,7 @@ export class Home {
     this.showUnauthorized = false;
   }
 
-  onLogout() {
-    this.authService.logout();
-  }
+
 
   movetoAllBooks(): void {
     this.router.navigate(['/allbooks']);

@@ -1,19 +1,4 @@
-/* .card:hover {
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-  transform: translateY(-3px);
-  transition: 0.3s ease;
-}
-.home-container {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 20px;
-  justify-content: center;
-  padding: 1rem;
-}
-.card-text{
-font-size:18px;
-} */
- /* above css is for bootstrap */
+
 
 
 
@@ -56,4 +41,8 @@ body, .home-container {
 
 .user-details p {
   margin: 2px 0;
+}
+
+.user-card{
+  gap: 50px; 
 }

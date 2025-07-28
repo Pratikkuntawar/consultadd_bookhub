@@ -1,73 +1,59 @@
-<!-- <div class="modal-backdrop show">
-  <div class="modal d-block" tabindex="-1">
-    <div class="modal-dialog modal-dialog-centered">
-      <div class="modal-content custom-login-modal text-center p-4">
-        <h5 class="modal-title text-white mb-3">Login</h5>
-        <form>
-          <input
-            type="email"
-            class="form-control mb-3 dark-input"
-            placeholder="Enter Email"
-          />
-          <input
-            type="password"
-            class="form-control mb-3 dark-input"
-            placeholder="Enter Password"
-          />
-          <button type="submit" class="btn btn-primary fw-bold">Login</button>
-          <button
-            type="button"
-            class="btn btn-outline-light ms-2 fw-bold"
-            onclick="handleClose()"
-          >
-            Close
-          </button>
-        </form>
-      </div>
-    </div>
-  </div>
-</div> -->
-<!-- new code -->
+
 <div class="modal-backdrop show">
   <div class="modal d-block" tabindex="-1">
     <div class="modal-dialog modal-dialog-centered">
-      <div class="modal-content custom-login-modal text-center p-4">
-        <h5 class="modal-title text-white mb-3">Login</h5>
+      <div class="modal-content custom-login-modal text-center p-4 bg-white">
+        <h5 class="modal-title text-black mb-3">Login</h5>
         <form (ngSubmit)="onSubmit()" #loginForm="ngForm">
+          <!-- Email -->
           <input
             type="email"
-            class="form-control mb-3 dark-input"
-            placeholder="Enter Email "
             name="email"
             [(ngModel)]="loginData.email"
             required
+            pattern="^[a-zA-Z0-9._%+-]+@consultadd\.com$"
+            #emailRef="ngModel"
+            class="form-control mb-1"
+            placeholder="Enter your Consultadd email"
           />
+          <small class="text-danger" *ngIf="emailRef.invalid && emailRef.touched">
+            Valid Consultadd email is required 
+          </small>
+
+          <!-- Password -->
           <input
             type="password"
-            class="form-control mb-3 dark-input"
-            placeholder="Enter Password"
             name="password"
             [(ngModel)]="loginData.password"
             required
+            minlength="6"
+            #passwordRef="ngModel"
+            class="form-control mb-1 mt-3"
+            placeholder="Enter password (min 8 chars)"
           />
-          <button
-            type="submit"
-            class="btn btn-primary fw-bold"
-            [disabled]="!loginForm.form.valid"
-          >
-            Login
-          </button>
-          <button
-            type="button"
-            class="btn btn-outline-light ms-2 fw-bold"
-            (click)="handleClose()"
-          >
-            Close
-          </button>
+          <small class="text-danger" *ngIf="passwordRef.invalid && passwordRef.touched">
+            Password must be at least 8 characters
+          </small>
+
+          <!-- Buttons -->
+          <div class="mt-4">
+            <button
+              type="submit"
+              class="btn btn-primary fw-bold"
+              [disabled]="!loginForm.valid"
+            >
+              Login
+            </button>
+            <button
+              type="button"
+              class="btn btn-danger ms-2 fw-bold"
+              (click)="handleClose()"
+            >
+              Close
+            </button>
+          </div>
         </form>
       </div>
     </div>
   </div>
 </div>
-
-

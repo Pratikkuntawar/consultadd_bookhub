@@ -35,3 +35,6 @@ body, .home-container {
 .user-details p {
   margin: 2px 0;
 }
+.user-card{
+  gap: 50px; 
+}

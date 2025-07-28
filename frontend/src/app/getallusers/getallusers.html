@@ -1,37 +1,10 @@
-<!-- <div class="home-container mt-4" style="background-color: #1a1a1a;">
-  <div *ngFor="let user of users" class="card mb-3 bg-white text-black shadow-sm w-100">
-    <div class="row g-0 align-items-center">
-      <div class="col-md-2 text-center">
-        <img src="/seller.png" class="img-fluid rounded-start m-2" alt="User">
-      </div>
-      <div class="col-md-10">
-        <div class="card-body">
-          <h5 class="card-title">{{ user.name }}</h5>
-          <p class="card-text mb-1">📧 Email: {{ user.email }}</p>
-          <p class="card-text mb-1">📱 Mobile: {{ user.mobile }}</p>
-          <p class="card-text">🧑‍💼 Role: {{ user.role }}</p>
-        </div>
-      </div>
-    </div>
-  </div>
-</div> -->
-<!-- <div class="home-container mt-4" style="background-color: #1a1a1a;">
-  <div *ngFor="let user of users" class="user-card">
-    <img src="/seller.png" alt="User" class="user-image">
-    <div class="user-details">
-      <h5>{{ user.name }}</h5>
-      <p>📧 Email: {{ user.email }}</p>
-      <p>📱 Department: {{ user.department}}</p>
-      <p>🧑‍💼 Role: {{ user.role }}</p>
-    </div>
-  </div>
-</div> -->
+
 <!-- In your component HTML -->
 <div class="home-container">
   <div *ngFor="let user of users" class="user-card">
     <img src="/seller.png" alt="User" class="user-image">
     <div class="user-details">
-      <h5>{{ user.name }}</h5>
+      <h5>{{ user.fullName }}</h5>
       <p>🧑‍💼User ID:{{user.id}}</p>
       <p>📧 Email: {{ user.email }}</p>
       <p>📱 Department: {{ user.department }}</p>

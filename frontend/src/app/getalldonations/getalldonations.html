@@ -1,12 +1,13 @@
 <div class="home-container">
-  <div *ngFor="let user of users" class="user-card">
-    <img src="/seller.png" alt="User" class="user-image">
+  <div *ngFor="let donation of donations" class="user-card">
+    <img src="/books.webp" alt="User" class="user-image">
     <div class="user-details">
-      <h5>{{ user.name }}</h5>
-      <p>🧑‍💼User ID:{{user.id}}</p>
-      <p>📧 Email: {{ user.email }}</p>
-      <p>📱 Department: {{ user.department }}</p>
-      <p>🧑‍💼 Role: {{ user.role }}</p>
+      <h5>Book Title : {{ donation.title }}</h5>
+      <p>🧑‍💼Donation ID:{{donation.id}}</p>
+      <p>📧 Author: {{donation.author}}</p>
+      <p>📱 PDF Url: {{donation.pdfUrl }}</p>
+      <p>🧑‍💼 Image Url: {{donation.imageUrl}}</p>
+      <p>Status:{{donation.status}}</p>
     </div>
   </div>
 </div>
