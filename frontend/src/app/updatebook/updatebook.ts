@@ -1,57 +1,76 @@
-import { HttpClient } from '@angular/common/http';
-import { Component } from '@angular/core';
-import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
+
+import { Component, OnInit } from '@angular/core';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-updatebook',
-  imports: [FormsModule,ReactiveFormsModule],
+  imports:[FormsModule,CommonModule],
   templateUrl: './updatebook.html',
-  styleUrl: './updatebook.css'
+  styleUrls: ['./updatebook.css']
 })
-export class Updatebook {
-updateForm: FormGroup;
+export class Updatebook implements OnInit {
+  books: any[] = [];
+  selectedBook: any = null;
+  updatedBook: any = {
+    id: '',
+    title: '',
+    author: '',
+    department: '',
+    price: ''
+  };
 
-  constructor(private fb: FormBuilder, private http: HttpClient) {
-    this.updateForm = this.fb.group({
-      id: ['', Validators.required],
-      title: ['', Validators.required],
-      author: ['', Validators.required],
-      description: ['', Validators.required],
-      bookType: ['', Validators.required],
-      department: ['', Validators.required],
-      pdfUrl: ['', Validators.required],
-      price: ['', Validators.required],
-      imageUrl: ['', Validators.required]
-    });
+  constructor(private http: HttpClient) {}
+
+  ngOnInit(): void {
+    this.fetchBooks();
   }
 
-onSubmit() {
-  const bookId = this.updateForm.value.id;
-  const body = { ...this.updateForm.value };
-  delete body.id;
+  fetchBooks(): void {
+    const headers = new HttpHeaders().set('Authorization', `Bearer ${localStorage.getItem('token')}`);
+    this.http.get<any[]>('http://localhost:8080/consultadd/books/getallbooks', { headers })
+      .subscribe(data => {
+        this.books = data;
+        console.log(data);
+      });
+  }
 
-  const token = localStorage.getItem('token');// Replace this with actual token from storage or auth service
+  onUpdateClick(book: any): void {
+    this.selectedBook = { ...book };
+    this.updatedBook = { ...book };
+  }
 
-  this.http.put(`http://localhost:8080/consultadd/books/updatebook/${bookId}`, body, {
-    headers: {
-      'Authorization': `Bearer ${token}`,
-      'Content-Type': 'application/json'
-    }
-  }).subscribe({
-    next: (res) => {
-      alert('✅ Book updated successfully');
+updateBook(): void {
+  if (!this.updatedBook.id) return;
+
+  const headers = new HttpHeaders().set('Authorization', `Bearer ${localStorage.getItem('token')}`);
+  
+  this.http.put(
+    `http://localhost:8080/consultadd/books/updatebook/${this.updatedBook.id}`,
+    {
+      title: this.updatedBook.title,
+      author: this.updatedBook.author,
+      department: this.updatedBook.department,
+      price: this.updatedBook.price,
+      imageUrl: this.updatedBook.imageUrl
+    },
+    { headers }
+  ).subscribe({
+    next: () => {
+      alert(' Book updated successfully');
+      this.fetchBooks();
+      this.selectedBook = null;
     },
     error: (err) => {
-      if (err.status === 403) {
-        alert('❌ Book not found with this ID');
-      } else if (err.status === 404) {
-        alert('🚫 Forbidden: You are not authorized to update this book');
-      } else {
-        alert('⚠️ Error updating book. Please try again.');
-        console.error('Error:', err);
-      }
+      console.error('Error updating book:', err);
+      alert(' Failed to update book. Please try again.');
     }
   });
 }
 
+
+  cancelUpdate(): void {
+    this.selectedBook = null;//if selectBook becomes null then form will not rendered into the browser
+  }
 }

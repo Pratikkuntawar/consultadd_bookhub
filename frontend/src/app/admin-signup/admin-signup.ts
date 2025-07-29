@@ -28,20 +28,6 @@ handleClose() {
     department: ''
   };
 
-  // registerUser() {
-  //   const apiUrl = 'http://localhost:8080/consultadd/admin/create-admin'; // ✅ Replace with your backend endpoint
-
-  //   this.http.post(apiUrl, this.signupData).subscribe({
-  //     next: (response) => {
-  //       console.log('Registration successful:', response);
-  //       alert('Registered successfully!');
-  //     },
-  //     error: (error) => {
-  //       console.error('Registration failed:', error);
-  //       alert('Registration failed. Please try again.');
-  //     }
-  //   });
-  // }
   registerUser() {
   const apiUrl = 'http://localhost:8080/consultadd/admin/create-admin';
   const token = localStorage.getItem('token');

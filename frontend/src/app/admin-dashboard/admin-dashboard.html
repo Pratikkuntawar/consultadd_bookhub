@@ -1,11 +1,6 @@
 
-
-
-
-<!-- new admin -->
-<!-- Admin Navbar -->
 <nav class="navbar navbar-expand-lg navbar-dark px-4" style="background-color: #1a1a1a;">
-    <a class="navbar-brand" href="#">
+    <a class="navbar-brand logo" href="#">
     <img src="/Consultadd_Logo.png" alt="Logo" width="250" height="60">
   </a>
 
@@ -79,12 +74,10 @@
         <a class="nav-link text-light" routerLink="/admin/book-requests" (click)="donatebook()">Donate Book</a>
       </li>
 
-      <li class="nav-item mx-2">
-        <a class="nav-link text-light" routerLink="/admin/review-transaction" routerLinkActive="active">Review Transactions</a>
-      </li>
     </ul>
 
-    <button class="btn btn-danger" (click)="onLogout()">Logout</button>
+    <!-- <button class="btn btn-danger" (click)="onLogout()">Logout</button> -->
+       <a  style="cursor: pointer;"  class="profile" (click)="visitprofile()"><img src="https://cdn-icons-png.flaticon.com/512/149/149071.png" alt="Profile" class="profile-icon"></a>
   </div>
 </nav>
 

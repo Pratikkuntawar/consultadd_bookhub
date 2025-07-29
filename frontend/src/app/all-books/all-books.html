@@ -1,31 +1,6 @@
 
 
 
-<!-- <div class="book-container py-3" style="background-color: #000000">
-  <input
-    type="text"
-    class="form-control mb-4"
-    placeholder="Search by title or author"
-    [(ngModel)]="searchQuery"
-  />
-
-  <div class="book-container">
-    <div
-      class="book-card"
-      *ngFor="let book of filteredBooks()"
-      
-      style="cursor: pointer"
-    >
-      <img [src]="book.imageUrl" [alt]="book.image" class="book-image" />
-      <h3 class="text-light book-title">{{ book.title }}</h3>
-      <p class="text-light book-author">Author: {{ book.author }}</p>
-      <p class="text-light book-price">₹{{ book.price }}</p>
-      <button class="btn btn-success mt-2" >Add to Cart</button>
-    </div>
-  </div>
-</div> -->
-
-
 
 <div class="book-page py-4 px-3" style="background-color: #000000; min-height: 100vh;">
   <!-- Search and Filter Section -->
@@ -59,7 +34,7 @@
     <div
       class="card p-2"
       *ngFor="let book of filteredBooksList"
-      style="width: 250px; background-color: #1e1e1e; border: none;"
+      style="width: 250px; background-color: #1e1e1e; border: 1px solid yellow;"
     >
       <img
         [src]="book.imageUrl"

@@ -207,3 +207,13 @@
   transform: translateY(-100px); 
 }
 }
+
+
+@media (max-width: 768px){
+  .home-right {
+    text-align: center;
+  }
+  .logo{
+   display: none;
+  }
+}

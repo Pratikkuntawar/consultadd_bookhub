@@ -1,48 +1,58 @@
-<div class="form-container">
-  <form [formGroup]="updateForm" (ngSubmit)="onSubmit()">
-    <h2>Update Book</h2>
 
-    <label>Book ID:</label>
-    <input formControlName="id" type="number" placeholder="Enter Book ID" />
+<!-- Main Container -->
+<div class="book-page py-4 px-3" style="background-color: #000000; min-height: 100vh;">
+  <h2 class="text-center mb-4 text-light">📚 Book Collection</h2>
 
-    <label>Title:</label>
-    <input formControlName="title" type="text" />
+<div class=" d-flex flex-wrap gap-4 justify-content-center">
 
-    <label>Author:</label>
-    <input formControlName="author" type="text" />
+    <div *ngFor="let book of books" class="col-sm-10 col-md-4 col-lg-3 mb-4">
+      <div class="card book-card shadow-lg" style="background-color: #1e1e1e; color: #f8f9fa; border:5px solid white">
+        <img [src]="book.imageUrl" class="card-img-top rounded-top" alt="Book Image" style="height: 220px; object-fit: contain;" />
+        <div class="card-body text-center">
+          <h5 class="card-title mb-1">{{ book.title }}</h5>
+          <h6 class="mb-1 text-black"><strong>Author:</strong> {{ book.author }}</h6>
+          <h6 class="mb-2 text-black"><strong>Price:</strong> ₹{{ book.price }}</h6>
+          <button (click)="onUpdateClick(book)">✏️ Update Book</button>
+        </div>
+      </div>
+    </div>
+  </div>
 
-    <label>Description:</label>
-    <textarea formControlName="description"></textarea>
+  <!-- Update Form Section -->
+  <div *ngIf="selectedBook" class="update-form mt-5 p-4 rounded shadow-lg" style="background-color: #2a2a2a; color: #ffffff; max-width: 550px; margin: auto; border-left: 6px solid yellow;">
+    <h3 class="text-center mb-4 text-light">✏️ Update Book</h3>
+    <form (submit)="updateBook()">
+      <div class="mb-3">
+        <label class="form-label">Title</label>
+        <input class="form-control" [(ngModel)]="updatedBook.title" name="title" required />
+      </div>
 
-    <label>Book Type:</label>
-    <select formControlName="bookType">
-      <option value="PHYSICAL">PHYSICAL</option>
-      <option value="DIGITAL">DIGITAL</option>
-    </select>
+      <div class="mb-3">
+        <label class="form-label">Author</label>
+        <input class="form-control" [(ngModel)]="updatedBook.author" name="author" required />
+      </div>
 
+      <div class="mb-3">
+        <label class="form-label">Department</label>
+        <input class="form-control" [(ngModel)]="updatedBook.department" name="department" required />
+      </div>
 
-      <!-- <div class="form-group"> -->
-        <label>Department</label>
-        <select formControlName="department" required>
-          <option value="">Select Department</option>
-          <option value="CODING">CODING</option>
-          <option value="HR">HR</option>
-          <option value="SALES">SALES</option>
-          <option value="DELIVERY">DELIVERY</option>
-          <option value="MARKETING">MARKETING</option>
-        </select>
-      <!-- </div> -->
+      <div class="mb-3">
+        <label class="form-label">Price</label>
+        <input class="form-control" type="number" [(ngModel)]="updatedBook.price" name="price" required />
+      </div>
 
-    <label>PDF URL:</label>
-    <input formControlName="pdfUrl" type="text" />
+      <div class="mb-3">
+        <label class="form-label">Image URL</label>
+        <input class="form-control" [(ngModel)]="updatedBook.imageUrl" name="imageUrl" />
+      </div>
 
-    <label>Image URL:</label>
-    <input formControlName="imageUrl" type="text" />
-
-        <label>Price:</label>
-    <input formControlName="price" type="number" />
-    
-    <button type="submit">Update Book</button>
-  </form>
+      <div class="d-flex justify-content-between gap-2 mt-4">
+        <button type="submit" class="btn btn-success w-50 fw-bold"> Save</button>
+        <button type="button" class="btn btn-danger w-50 fw-bold" (click)="cancelUpdate()"> Cancel</button>
+      </div>
+    </form>
+  </div>
 </div>
+
 

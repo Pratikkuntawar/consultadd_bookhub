@@ -39,15 +39,6 @@ toggleMenu() {
     this.isMenuOpen = !this.isMenuOpen;
   }
 
-  // onLogout() {
-  //   // Replace with actual auth service logout if needed
-  // console.log('Seller Logged Out');
-  // alert('Seller Logged Out');
-  // localStorage.removeItem('token');
-  // localStorage.removeItem('role');
-  // localStorage.removeItem('employeeId');
-  // this.router.navigate(['/']);
-  // }
     onLogout() {
     console.log('Admin Logged Out');
   
@@ -65,5 +56,9 @@ toggleMenu() {
       localStorage.removeItem('employeeId');
       this.router.navigate(['/']);
     });
+  }
+
+  visitprofile(){
+    this.router.navigate(['/profile']);
   }
 }

@@ -6,12 +6,12 @@ import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-cart',
-  imports: [FormsModule,CommonModule],
+  standalone: true,
+  imports: [FormsModule, CommonModule],
   templateUrl: './cart.html',
-  styleUrl: './cart.css'
+  styleUrls: ['./cart.css']
 })
 export class Cart implements OnInit {
-
   cartItems: any[] = [];
 
   constructor(private http: HttpClient) {}
@@ -28,7 +28,6 @@ export class Cart implements OnInit {
       next: (res) => {
         this.cartItems = res;
         console.log(this.cartItems)
-        // Initialize quantity if needed
         this.cartItems.forEach(item => {
           if (!item.quantity) item.quantity = 1;
         });
@@ -39,27 +38,23 @@ export class Cart implements OnInit {
     });
   }
 
-updateItem(item: any): void {
-  const token = localStorage.getItem('token');
-  const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
+  updateItem(item: any): void {
+    const token = localStorage.getItem('token');
+    const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
+    const payload = { bookId: item.bookId, quantity: item.quantity };
 
-  const payload = {
-    bookId: item.bookId,     // Ensure this property exists in your response
-    quantity: item.quantity  // Updated quantity bound via ngModel
-  };
-
-  this.http.put('http://localhost:8080/buyer/cart/update', payload, { headers })
-    .subscribe({
-      next: () => {
-        alert('Quantity updated successfully!');
-        this.loadCart(); // Refresh cart if needed
-      },
-      error: (err) => {
-        console.error('Update failed', err);
-        alert('Failed to update quantity');
-      }
-    });
-}
+    this.http.put('http://localhost:8080/buyer/cart/update', payload, { headers })
+      .subscribe({
+        next: () => {
+          alert('Quantity updated successfully!');
+          this.loadCart();
+        },
+        error: (err) => {
+          console.error('Update failed', err);
+          alert('Failed to update quantity');
+        }
+      });
+  }
 
 clearCart() {
     const token = localStorage.getItem('token');
@@ -79,28 +74,30 @@ clearCart() {
     const token = localStorage.getItem('token');
     const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
 
-  this.http.delete('http://localhost:8080/buyer/cart/remove', {
-    headers,
-    body: { bookId: item.bookId }
-  }).subscribe({
-    next: () => {
-      this.cartItems = this.cartItems.filter(cart => cart.bookId !== item.bookId);
-    },
-    error: err => {
-      console.error('Error removing item:', err);
-    }
-  });
-}
-
-increaseQuantity(item: any): void {
-  item.quantity = (item.quantity || 1) + 1;
-}
-
-decreaseQuantity(item: any): void {
-  if (item.quantity > 1) {
-    item.quantity--;
+    this.http.delete('http://localhost:8080/buyer/cart/remove', {
+      headers,
+      body: { bookId: item.bookId }
+    }).subscribe({
+      next: () => {
+        this.cartItems = this.cartItems.filter(cart => cart.bookId !== item.bookId);
+      },
+      error: err => {
+        console.error('Error removing item:', err);
+      }
+    });
   }
-}
 
+  increaseQuantity(item: any): void {
+    item.quantity = (item.quantity || 1) + 1;
+  }
 
+  decreaseQuantity(item: any): void {
+    if (item.quantity > 1) {
+      item.quantity--;
+    }
+  }
+
+  getTotalPrice(): number {
+    return this.cartItems.reduce((total, item) => total + item.price * item.quantity, 0);
+  }
 }

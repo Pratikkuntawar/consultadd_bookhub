@@ -1,0 +1,24 @@
+<div class="page-center-wrapper">
+  <div class="profile-wrapper">
+    <!-- Profile Icon -->
+    <div class="icon-section">
+      <img src="https://cdn-icons-png.flaticon.com/512/149/149071.png" alt="Profile" class="profile-icon">
+    </div>
+
+    <!-- Profile Details -->
+    <div class="details-section">
+      <p><strong>Full Name:</strong> {{ fullName }}</p>
+      <p><strong>Role:</strong> {{ role }}</p>
+      <p><strong>Employee ID:</strong> {{ employeeId }}</p>
+    </div>
+
+    <!-- Action Buttons -->
+    <div class="button-section">
+      <!-- <button class="btn btn-success">Close</button> -->
+       <!-- <button class="action-button" (click)="onLogout()">Logout</button> -->
+       <button class="btn btn-success" (click)="onLogout()">Logout</button> 
+       <button class="btn btn-danger" (click)="movetodashboard()">Close</button>
+    </div>
+  </div>
+</div>
+

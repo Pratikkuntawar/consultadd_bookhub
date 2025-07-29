@@ -118,13 +118,13 @@ export class AddBook implements OnInit {
       { headers }
     ).subscribe({
       next: (res) => {
-        alert('✅ Book added successfully!');
+        alert('Book added successfully!');
         console.log('Book added successfully:', res);
         //this.router.navigate(['/seller-dashboard']); 
         this.bookForm.reset();
       },
       error: (err) => {
-        alert('❌ Failed to add book. Please try again.');
+        alert(' Failed to add book. Please try again.');
         console.error('Error while adding book:', err);
       }
     });

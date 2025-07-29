@@ -37,15 +37,6 @@ toggleMenu() {
   this.router.navigate(['/donatebook']);   
   }
 
-  // onLogout() {
-  //   // Replace with actual auth service logout if needed
-  //   console.log('Buyer Logged Out');
-  //   alert('Buyer Has Been Logged Out');
-  // localStorage.removeItem('token');
-  // localStorage.removeItem('role');
-  // localStorage.removeItem('employeeId');
-  //   this.router.navigate(['/']);
-  // }
     onLogout() {
     console.log('Admin Logged Out');
   
@@ -63,5 +54,9 @@ toggleMenu() {
       localStorage.removeItem('employeeId');
       this.router.navigate(['/']);
     });
+  }
+
+  visitprofile(){
+    this.router.navigate(['/profile']);
   }
 }

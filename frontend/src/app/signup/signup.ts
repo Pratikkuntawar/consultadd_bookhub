@@ -27,57 +27,6 @@ export class SignupComponent {
    this.router.navigate(['/']); 
   }
 
-//   registerUser() {
-//     const apiUrl = 'http://localhost:8080/consultadd/auth/register'; // ✅ Replace with your backend endpoint
-
-//     this.http.post(apiUrl, this.signupData).subscribe({
-//       next: (response) => {
-//         console.log('Registration successful:', response);
-//         // alert('Registered successfully!');
-//         Swal.fire({
-//   icon: 'success',
-//   title: 'Success!',
-//   text: 'Regiter successfully.',
-// });
-//         //this.moveToLoginRoute();
-//         this.router.navigate(['/login']);
-//       },
-//       error: (error) => {
-//         console.error('Registration failed:', error);
-//          alert('Registration failed. Please try again.');
-//       }
-//     });
-//   }
-
-// registerUser() {
-//   const apiUrl = 'http://localhost:8080/consultadd/auth/register';
-
-//   this.http.post(apiUrl, this.signupData).subscribe({
-//     next: (response) => {
-//       console.log('Registration successful:', response);
-
-//       // Show success alert, then navigate to login page
-//       Swal.fire({
-//         icon: 'success',
-//         title: 'Success!',
-//         text: 'Registered successfully.',
-        
-//       }).then((result) => {
-//         if (result.isConfirmed) {
-//           this.router.navigate(['/login']);
-//         }
-//       });
-//     },
-//     error: (error) => {
-//       console.error('Registration failed:', error);
-//       Swal.fire({
-//         icon: 'error',
-//         title: 'Registration Failed',
-//         text: 'Please try again.',
-//       });
-//     }
-//   });
-// }
 registerUser() {
   const apiUrl = 'http://localhost:8080/consultadd/auth/register';
 

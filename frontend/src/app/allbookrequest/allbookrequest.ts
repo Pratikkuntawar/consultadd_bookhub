@@ -16,23 +16,6 @@ export class Allbookrequest implements OnInit {
 
   constructor(private http: HttpClient) {}
 
-  // ngOnInit(): void {
-  //   this.http.get<any[]>('http://localhost:8080/api/book-requests/all').subscribe(
-  //     (response) => {
-  //       this.users = response.map(request => ({
-  //         id: request.requester?.id,
-  //         name: request.requester?.fullName,
-  //         email: request.requester?.email,
-  //         department: request.requester?.department,
-  //         role: request.requester?.role
-  //       }));
-  //     },
-  //     (error) => {
-  //       console.error('Error fetching book requests:', error);
-  //     }
-  //   );
-  // }
-
   ngOnInit(): void {
     const token = localStorage.getItem('token');
     const apiUrl = 'http://localhost:8080/api/book-requests/all';

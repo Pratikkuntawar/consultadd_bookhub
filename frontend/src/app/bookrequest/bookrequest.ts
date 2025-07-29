@@ -1,7 +1,4 @@
 
-
-
-
 import { Component, OnInit } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
@@ -45,39 +42,6 @@ if (this.role === 'SELLER') {
       }  
 }
 
-//   submitRequest() {
-//     const token = localStorage.getItem('token'); // or sessionStorage if you're storing it there
-//     const id=localStorage.getItem('employeeId');
-//     console.log("Requester Id",id);
-   
-//     if (!token) {
-//       alert('Token not found. Please login.');
-//       return;
-//     }
-
-//     const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
-
-//     this.http
-//       .post('http://localhost:8080/api/book-requests/create-bookrequest', this.bookRequest, { headers })
-// .subscribe({
-//       next: () => {
-//         alert('✅ Book request submitted successfully!');
-//          if (this.role === 'SELLER') {
-//           this.router.navigate(['/seller-dashboard']);
-//         } else if (this.role === 'BUYER') {
-//           this.router.navigate(['/buyer-dashboard']);
-//         } else if (this.role === 'ADMIN') {
-//           this.router.navigate(['/admin-dashboard']);
-//         } else {
-//           alert('Unknown role');
-//         } // 🔁 replace with your actual route
-//       },
-//       error: (err) => {
-//         console.error(err);
-//         alert('❌ Failed to submit book request.');
-//       },
-//     });
-//   }
 submitRequest() {
   const token = localStorage.getItem('token');
   const id = localStorage.getItem('employeeId');
@@ -101,7 +65,7 @@ submitRequest() {
         Swal.fire({
           icon: 'success',
           title: 'Success!',
-          text: '✅ Book request submitted successfully!',
+          text: 'Book request submitted successfully!',
         }).then(() => {
           // Navigate only after clicking "OK"
           if (this.role === 'SELLER') {
@@ -120,7 +84,7 @@ submitRequest() {
         Swal.fire({
           icon: 'error',
           title: 'Failed!',
-          text: '❌ Failed to submit book request.',
+          text: 'Failed to submit book request.',
         });
       },
     });

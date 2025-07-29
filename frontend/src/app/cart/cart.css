@@ -27,3 +27,13 @@ body {
   background-color: #000000 !important;
   color: #ffffff; /* Makes text visible */
 }
+
+.order{
+  text-align: center;
+}
+
+@media (max-width: 768px){
+.summarytable{
+text-align: center;
+}
+}

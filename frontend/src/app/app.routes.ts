@@ -2,10 +2,9 @@ import { Routes } from '@angular/router';
 import {LoginComponent} from './login/login'
 import { Home } from './home/home';
 // import { Dashboard } from './dashboard/dashboard';
-import { authGuard } from './auth-guard';
+import { AuthGuard } from './auth-guard';
 
 import { AllBooks } from './all-books/all-books';
-import { BookDetailsComponent } from './bookdetails/bookdetails';
 import { SignupComponent } from './signup/signup';
 import { AdminDashboard } from './admin-dashboard/admin-dashboard';
 import { AdminSignup } from './admin-signup/admin-signup';
@@ -24,28 +23,29 @@ import { Updatebook } from './updatebook/updatebook';
 import { Cart } from './cart/cart';
 import { BookRequest } from './bookrequest/bookrequest';
 import { DonateBook } from './donatebook/donatebook';
+import { Profile } from './profile/profile';
 export const routes: Routes = [
     {path:'',component:Home},
-    { path: 'browsebooks', component: AllBooks},
-    { path: 'book/:id', component: BookDetailsComponent },
-    { path: 'signup', component: SignupComponent },
+    { path: 'browsebooks', component: AllBooks, canActivate: [AuthGuard]},
+    { path: 'signup', component: SignupComponent},
     {path:'login',component:LoginComponent},
-    {path:"admin-dashboard",component:AdminDashboard},
-    {path:"admin-signup",component:AdminSignup},
-    {path:"buyer-dashboard",component:BuyerDashboard},
-    {path:"seller-dashboard",component:SellerDashboard},
-    {path:"admin-getallusers",component:Getallusers},
-    {path:"admin-searchbyid",component:Searchbyid},
-    {path:"admin-getalldonations",component:Getalldonations},
-    {path:"admin-updatedonations",component:Updatedonations},
-    {path:"admin-movetoviewallbookrequest",component:Allbookrequest},
-    {path:"admin-movetoupdatebookrequest",component:Updatebookrequest},
-    {path:"buyer-dashboard/requestbook",component:Requestbook},
-    {path:"addBook",component:AddBook},
-    {path:"updateBook",component:Updatebook},
-    {path:"viewcart",component:Cart},
-    {path:"bookrequest",component:BookRequest},
-    {path:"donatebook",component:DonateBook},
+    {path:"admin-dashboard",component:AdminDashboard, canActivate: [AuthGuard]},
+    {path:"admin-signup",component:AdminSignup, canActivate: [AuthGuard]},
+    {path:"buyer-dashboard",component:BuyerDashboard, canActivate: [AuthGuard]},
+    {path:"seller-dashboard",component:SellerDashboard, canActivate: [AuthGuard]},
+    {path:"admin-getallusers",component:Getallusers, canActivate: [AuthGuard]},
+    {path:"admin-searchbyid",component:Searchbyid, canActivate: [AuthGuard]},
+    {path:"admin-getalldonations",component:Getalldonations, canActivate: [AuthGuard]},
+    {path:"admin-updatedonations",component:Updatedonations, canActivate: [AuthGuard]},
+    {path:"admin-movetoviewallbookrequest",component:Allbookrequest , canActivate: [AuthGuard]},
+    {path:"admin-movetoupdatebookrequest",component:Updatebookrequest , canActivate: [AuthGuard]},
+    {path:"buyer-dashboard/requestbook",component:Requestbook , canActivate: [AuthGuard]},
+    {path:"addBook",component:AddBook, canActivate: [AuthGuard]},
+    {path:"updateBook",component:Updatebook, canActivate: [AuthGuard]},
+    {path:"viewcart",component:Cart, canActivate: [AuthGuard]},
+    {path:"bookrequest",component:BookRequest, canActivate: [AuthGuard]},
+    {path:"donatebook",component:DonateBook, canActivate: [AuthGuard]},
+    {path:"profile",component:Profile, canActivate: [AuthGuard]},
     // {path:'dashboard',component:Dashboard,canActivate:[authGuard]},
    //{path:'campaiangForm',component:CampaignRegister,canActivate:[authGuard]}
 ];

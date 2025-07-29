@@ -1,13 +1,4 @@
 
-
-
-
-
-
-
-
-
-
 <div class="container-fluid mt-4 " >
   <div class="d-flex justify-content-between align-items-center">
     <h2>Your Cart</h2>
@@ -28,23 +19,11 @@
 
       <!-- Details section -->
       <div class="col-md-7">
-        <!-- <div class="card-body">
-          <h5 class="card-title">Title: {{ item.title }}</h5>
-          <p class="card-text mb-1"><strong>Author:</strong> {{ item.author }}</p>
 
-          <label for="qty">Quantity:</label>
-          <input
-            type="number"
-            min="1"
-            [(ngModel)]="item.quantity"
-            class="form-control form-control-sm"
-            style="width: 100px; display: inline-block;"
-          />
-        </div> -->
         <div class="card-body">
   <h5 class="card-title">Title: {{ item.title }}</h5>
   <p class="card-text mb-1"><strong>Author:</strong> {{ item.author }}</p>
-
+<p class="card-text mb-1"><strong>Price:</strong> ₹{{ item.price }}</p>
   
 
   <div class="d-flex align-items-center mb-2">
@@ -66,12 +45,6 @@
 
       </div>
 
-      <!-- Update button -->
-      <!-- <div class="col-md-3 text-center">
-        <button class="btn btn-primary mt-4" (click)="updateItem(item)">
-          Update
-        </button>
-      </div> -->
 <div class="col-md-3 text-center">
   <div class="d-flex justify-content-center align-items-center gap-2 mt-4">
     <button class="btn btn-success" (click)="updateItem(item)">
@@ -82,7 +55,32 @@
     </button>
   </div>
 </div>
-
+  
     </div>
+  </div>
+  <div *ngIf="cartItems.length > 0" class="mt-5">
+    <h3 class="order">Order Summary</h3>
+    <table class="table table-bordered mt-3 text-center summarytable">
+      <thead class="table-light table-heading">
+        <tr>
+          <th>Book</th>
+          <th>Price (₹)</th>
+          <th>Quantity</th>
+          <th>Total (₹)</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of cartItems">
+          <td>{{ item.title }}</td>
+          <td>₹{{ item.price }}</td>
+          <td>{{ item.quantity }}</td>
+          <td>₹{{ item.price * item.quantity }}</td>
+        </tr>
+        <tr class="fw-bold">
+          <td colspan="3" class="text-end text-center">Total Cost</td>
+          <td>₹{{ getTotalPrice() }}</td>
+        </tr>
+      </tbody>
+    </table>
   </div>
 </div>

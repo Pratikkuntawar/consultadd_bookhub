@@ -33,40 +33,7 @@ export class DonateBook implements OnInit {
     }
   }
 
-// submitDonation() {
-//   const token = localStorage.getItem('token');
-//   // const role = localStorage.getItem('role'); // assuming role is stored in localStorage
 
-//   if (!token) {
-//     alert('Please login first.');
-//     return;
-//   }
-
-//   const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
-
-//   this.http
-//     .post('http://localhost:8080/api/donations/donor/donate-book', this.book, { headers })
-//     .subscribe({
-//       next: () => {
-//         alert('✅ Book donation submitted successfully!');
-        
-//         // Redirect based on role
-//         if (this.role === 'SELLER') {
-//           this.router.navigate(['/seller-dashboard']);
-//         } else if (this.role === 'BUYER') {
-//           this.router.navigate(['/buyer-dashboard']);
-//         } else if (this.role === 'ADMIN') {
-//           this.router.navigate(['/admin-dashboard']);
-//         } else {
-//           alert('Unknown role');
-//         }
-//       },
-//       error: (err) => {
-//         console.error(err);
-//         alert('❌ Failed to donate book.');
-//       },
-//     });
-// }
 
 submitDonation() {
   const token = localStorage.getItem('token');
@@ -114,7 +81,7 @@ submitDonation() {
         Swal.fire({
           icon: 'error',
           title: 'Donation Failed',
-          text: '❌ Failed to donate book. Please try again.',
+          text: ' Failed to donate book. Please try again.',
         });
       },
     });

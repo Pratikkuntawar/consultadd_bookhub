@@ -42,15 +42,6 @@ toggleMenu() {
     this.isMenuOpen = !this.isMenuOpen;
   }
 
-  // onLogout() {
-  //   // Replace with actual auth service logout if needed
-  //   console.log('Admin Logged Out');
-  //   alert("Admin Logged Out");
-  // localStorage.removeItem('token');
-  // localStorage.removeItem('role');
-  // localStorage.removeItem('employeeId');
-  // this.router.navigate(['/']);
-  // }
   onLogout() {
   console.log('Admin Logged Out');
 
@@ -62,11 +53,14 @@ toggleMenu() {
     timer: 2000,
     showConfirmButton: false
   }).then(() => {
-    // Clear local storage and navigate after Swal closes
     localStorage.removeItem('token');
     localStorage.removeItem('role');
     localStorage.removeItem('employeeId');
     this.router.navigate(['/']);
   });
 }
+
+visitprofile(){
+    this.router.navigate(['/profile']);
+  }
 }

@@ -20,19 +20,6 @@ export class Getalldonations implements OnInit {
     this.fetchDonations();
   }
 
-  // fetchDonations(): void {
-  //   const apiUrl = 'http://localhost:8080/api/donations/';
-
-  //   this.http.get<any[]>(apiUrl).subscribe({
-  //     next: (response) => {
-  //       this.donations = response;
-  //       console.log('All Donations:', this.donations);
-  //     },
-  //     error: (error) => {
-  //       console.error('Error fetching donations:', error);
-  //     }
-  //   });
-  // }
   fetchDonations(): void {
   const apiUrl = 'http://localhost:8080/api/donations/';
   const token = localStorage.getItem('token'); // Get token from localStorage

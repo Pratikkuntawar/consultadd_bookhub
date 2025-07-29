@@ -27,7 +27,6 @@ import { AddBook } from './addbook';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
 import { Router } from '@angular/router';
-import { of, throwError } from 'rxjs';
 
 fdescribe('AddBook Component', () => {
   let component: AddBook;
@@ -70,7 +69,7 @@ fdescribe('AddBook Component', () => {
     spyOn(window, 'alert');
     component.bookForm.patchValue({ title: '', author: '' }); // invalid input
     component.onSubmit();
-    expect(window.alert).not.toHaveBeenCalledWith('✅ Book added successfully!');
+    expect(window.alert).not.toHaveBeenCalledWith(' Book added successfully!');
   });
 
   it('should send POST request on valid form submit', fakeAsync(() => {
@@ -99,7 +98,7 @@ fdescribe('AddBook Component', () => {
     req.flush(mockResponse);
 
     tick();
-    expect(window.alert).toHaveBeenCalledWith('✅ Book added successfully!');
+    expect(window.alert).toHaveBeenCalledWith(' Book added successfully!');
     http.verify();
     flush();
   }));
@@ -127,7 +126,7 @@ fdescribe('AddBook Component', () => {
     req.flush({ message: 'Error' }, { status: 500, statusText: 'Server Error' });
 
     tick();
-    expect(window.alert).toHaveBeenCalledWith('❌ Failed to add book. Please try again.');
+    expect(window.alert).toHaveBeenCalledWith(' Failed to add book. Please try again.');
     http.verify();
     flush();
   }));
