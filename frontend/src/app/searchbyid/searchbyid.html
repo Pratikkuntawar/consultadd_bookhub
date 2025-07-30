@@ -1,0 +1,22 @@
+
+<div class="home-container" style="background-color: #000; min-height: 100vh; padding: 20px;">
+  <input
+    [(ngModel)]="searchId"
+    (keyup.enter)="searchUser()"
+    type="number"
+    placeholder="Enter User ID"
+    class="search-bar"
+  />
+
+  <div *ngFor="let user of filteredUsers" class="user-card">
+    <img src="/seller.png" alt="User" class="user-image" />
+    <div class="user-details">
+      <h5>{{ user.fullName }}</h5>
+      <p>🧑‍💼 User ID: {{ user.id }}</p>
+      <p>📧 Email: {{ user.email }}</p>
+      <p>📱 Department: {{ user.department }}</p>
+      <p>🧑‍💼 Role: {{ user.role }}</p>
+    </div>
+    
+  </div>
+</div>

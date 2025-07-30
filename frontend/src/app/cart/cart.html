@@ -1,0 +1,86 @@
+
+<div class="container-fluid mt-4 " >
+  <div class="d-flex justify-content-between align-items-center">
+    <h2>Your Cart</h2>
+    <button class="btn btn-danger" (click)="clearCart()">Clear Cart 🗑️</button>
+  </div>
+
+  <div *ngIf="cartItems.length === 0" class="alert alert-info text-center mt-4">
+    Add books to cart 📚
+  </div>
+
+  <div *ngFor="let item of cartItems" class="card mb-3 shadow-sm">
+    <div class="row no-gutters align-items-center">
+      
+      <!-- Image section -->
+      <div class="col-md-2">
+        <img src="/books.webp" class="img-fluid rounded-start" alt="Book Image" />
+      </div>
+
+      <!-- Details section -->
+      <div class="col-md-7">
+
+        <div class="card-body">
+  <h5 class="card-title">Title: {{ item.title }}</h5>
+  <p class="card-text mb-1"><strong>Author:</strong> {{ item.author }}</p>
+<p class="card-text mb-1"><strong>Price:</strong> ₹{{ item.price }}</p>
+  
+
+  <div class="d-flex align-items-center mb-2">
+  <label for="qty" class="me-2 mb-0"><strong>Quantity:</strong></label>
+
+  <div class="input-group" style="width: 130px;">
+    <button class="btn btn-outline-secondary" type="button" (click)="decreaseQuantity(item)">−</button>
+    <input
+      type="number"
+      min="1"
+      [(ngModel)]="item.quantity"
+      class="form-control text-center"
+    />
+    <button class="btn btn-outline-secondary" type="button" (click)="increaseQuantity(item)">+</button>
+  </div>
+</div>
+
+</div>
+
+      </div>
+
+<div class="col-md-3 text-center">
+  <div class="d-flex justify-content-center align-items-center gap-2 mt-4">
+    <button class="btn btn-success" (click)="updateItem(item)">
+      Update
+    </button>
+    <button class="btn btn-outline-danger" (click)="removeItem(item)">
+      Remove 
+    </button>
+  </div>
+</div>
+  
+    </div>
+  </div>
+  <div *ngIf="cartItems.length > 0" class="mt-5">
+    <h3 class="order">Order Summary</h3>
+    <table class="table table-bordered mt-3 text-center summarytable">
+      <thead class="table-light table-heading">
+        <tr>
+          <th>Book</th>
+          <th>Price (₹)</th>
+          <th>Quantity</th>
+          <th>Total (₹)</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of cartItems">
+          <td>{{ item.title }}</td>
+          <td>₹{{ item.price }}</td>
+          <td>{{ item.quantity }}</td>
+          <td>₹{{ item.price * item.quantity }}</td>
+        </tr>
+        <tr class="fw-bold">
+          <td colspan="3" class="text-end text-center">Total Cost</td>
+          <td>₹{{ getTotalPrice() }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

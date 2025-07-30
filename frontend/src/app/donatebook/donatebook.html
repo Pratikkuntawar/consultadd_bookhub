@@ -1,0 +1,79 @@
+<div class="modal-background d-flex justify-content-center align-items-center">
+  <div class="form-modal pop-out">
+    <h2 class="text-center mb-4">📘 Donate a Book</h2>
+    <form (ngSubmit)="submitDonation()" #form="ngForm">
+      <div class="mb-3">
+        <label class="form-label">Title:</label>
+        <input
+          class="form-control"
+          name="title"
+          [(ngModel)]="book.title"
+          required
+        />
+      </div>
+
+      <div class="mb-3">
+        <label class="form-label">Author:</label>
+        <input
+          class="form-control"
+          name="author"
+          [(ngModel)]="book.author"
+          required
+        />
+      </div>
+
+      <div class="mb-3">
+        <label class="form-label">PDF URL:</label>
+        <input
+          type="url"
+          class="form-control"
+          name="pdfUrl"
+          [(ngModel)]="book.pdfUrl"
+          required
+        />
+      </div>
+
+      <div class="mb-3">
+        <label class="form-label">Image URL:</label>
+        <input
+          type="url"
+          class="form-control"
+          name="imageUrl"
+          [(ngModel)]="book.imageUrl"
+          required
+        />
+      </div>
+
+      <div class="mb-3">
+        <label class="form-label">Department:</label>
+        <select
+          class="form-select"
+          name="department"
+          [(ngModel)]="book.department"
+          required
+        >
+          <option value="" disabled selected>Select department</option>
+          <option value="CODING">CODING</option>
+          <option value="MARKETING">MARKETING</option>
+          <option value="SALES">MECHANICAL</option>
+          <option value="HR">HR</option>
+          <option value="DELIVERY">DELIVERY</option>
+        </select>
+      </div>
+
+      <!-- Donor ID hidden -->
+      <input
+        type="hidden"
+        name="donorId"
+        [(ngModel)]="book.donor.id"
+        required
+      />
+
+      <div class="button-container">
+        <button class="btn btn-success px-4" type="submit">Submit</button>
+        <button class="btn btn-danger px-4" (click)="movetobuyerdashboard()" type="button">Close</button>
+      </div>
+    </form>
+  </div>
+</div>
+

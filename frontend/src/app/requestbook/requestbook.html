@@ -1,0 +1,7 @@
+<div class="form-wrapper">
+<form (ngSubmit)="submitRequest()" #bookForm="ngForm">
+  <input type="text" name="title" [(ngModel)]="bookRequest.title" placeholder="Title" required />
+  <input type="text" name="author" [(ngModel)]="bookRequest.author" placeholder="Author" required />
+  <button type="submit">Request Book</button>
+</form>
+</div>

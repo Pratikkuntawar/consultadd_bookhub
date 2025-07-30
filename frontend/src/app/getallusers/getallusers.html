@@ -1,0 +1,14 @@
+
+<div class="home-container">
+  <div *ngFor="let user of users" class="user-card">
+    <img src="/seller.png" alt="User" class="user-image">
+    <div class="user-details">
+      <h5>{{ user.fullName }}</h5>
+      <p>🧑‍💼User ID:{{user.id}}</p>
+      <p>📧 Email: {{ user.email }}</p>
+      <p>📱 Department: {{ user.department }}</p>
+      <p>🧑‍💼 Role: {{ user.role }}</p>
+    </div>
+  </div>
+</div>
+

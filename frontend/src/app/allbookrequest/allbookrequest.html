@@ -1,0 +1,14 @@
+
+<div class="home-container">
+  <div *ngFor="let user of users" class="user-card">
+    <img src="/books.webp" alt="User" class="user-image">
+    <div class="user-details">
+      <h5>📚 Book Title: {{ user.title }}</h5>
+<p>✍️ Author: {{ user.author }}</p>
+<p>📝 Reason: {{ user.reason }}</p>
+<p>🆔 Requester ID: {{ user.requester.id }}</p>
+<p>🙋 Request By: {{ user.requester.fullName }}</p>
+<p>📧 Requester Email: {{ user.requester.email }}</p>
+    </div>
+  </div>
+</div>

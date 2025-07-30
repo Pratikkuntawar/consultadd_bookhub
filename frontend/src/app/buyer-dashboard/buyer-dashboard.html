@@ -1,0 +1,51 @@
+<nav class="navbar navbar-expand-lg navbar-dark px-4" style="background-color: #1a1a1a;">
+
+  <a class="navbar-brand" href="#">
+    <img src="/Consultadd_Logo.png" alt="Logo" width="250" height="60">
+  </a>
+  <button class="navbar-toggler" type="button" (click)="toggleMenu()">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" [ngClass]="{ 'show': isMenuOpen }" id="adminNavbar">
+    <ul class="navbar-nav mx-auto">
+      <li class="nav-item mx-2">
+        <a class="nav-link text-light" routerLink="/admin/view" (click)="browsebooks()">Browse Books</a>
+      </li>
+      <li class="nav-item mx-2">
+        <a class="nav-link text-light" routerLink="/admin/book-management" (click)="viewcart()">View Cart<img  class="cart" src="/shopping-cart (1).png"/></a>
+      </li>
+
+      <li class="nav-item mx-2">
+        <a class="nav-link text-light" routerLink="/admin/book-requests" (click)="requestbook()">Request Books</a>
+      </li>
+      <li class="nav-item mx-2">
+        <a class="nav-link text-light" routerLink="/admin/book-requests" (click)="donatebook()">Donate Book</a>
+      </li>
+    </ul>
+
+    <!-- Optional logout -->
+    <!-- <button class="btn btn-danger" (click)="onLogout()">Logout</button> -->
+     <a class="profile" (click)="visitprofile()"><img src="https://cdn-icons-png.flaticon.com/512/149/149071.png" alt="Profile" class="profile-icon"></a>
+  </div>
+</nav>
+
+<!-- Admin Dashboard Content -->
+<div class="home-container" style="background-color: #000000; color: #ffffff; height: 100vh;">
+  <div class="home-left-content">
+    <h1 class="home-title text-6xl font-semibold text-yellow-100" style="color:#fef9c3">
+      Welcome to the Buyer Dashboard
+    </h1>
+    <p class="home-description text-xl" style="color:#d4d4d8">
+      Explore your favorite books, view order history, manage your wishlist, and enjoy a seamless shopping experience. This is your personalized space for everything you need as a reader.
+    </p>
+    <br />
+    <button class="home-button mt-4 explore-button" (click)="browseallbooks()">
+      Buy New Book
+    </button>
+  </div>
+  <div class="home-right">
+    <img src="/seller.png" alt="Buyer Illustration" />
+  </div>
+</div>
+

@@ -1,0 +1,48 @@
+
+<nav class="navbar navbar-expand-lg navbar-light px-4" style="background-color: #1a1a1a; color: #ffffff">
+  <a class="navbar-brand logo" href="#">
+    <img src="/Consultadd_Logo.png" alt="Logo" width="250" height="60">
+  </a>
+
+  <button class="navbar-toggler" type="button" (click)="toggleMenu()">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+
+  <div class="d-lg-none ms-auto">
+    <button class="btn btn-success my-2" type="button" (click)="onSignupClick()">Signup</button>
+  </div>
+
+  <div class="collapse navbar-collapse" [ngClass]="{ 'show': isMenuOpen }" id="navbarContent">
+    <ul class="navbar-nav mx-auto align-items-center">
+
+
+    </ul>
+
+    <button  class="btn btn-success" (click)="onSignupClick()">Signup</button>
+  </div>
+</nav>
+
+
+<app-signup *ngIf="showSignupModal" (switchToLogin)="openLoginModal()" (close)="closeSignupModal()"></app-signup>
+
+<app-login *ngIf="showLoginModal" (close)="closeLoginModal()"></app-login>
+
+<!-- Home Page Content -->
+<div class="home-container" style="background-color: #000000; color: #ffffff; height: 100vh;">
+  <div class="home-left-content">
+    <h1 class="home-title text-6xl font-semibold text-yellow-100" style="color:#fef9c3">
+      Welcome to BookStore
+    </h1>
+    <p class="home-description text-xl" style="color:#d4d4d8">
+      Your one-stop destination to explore, discover, and fall in love with books from every genre. Curated collections, trending titles, and handpicked recommendations await you.
+    </p>
+    <small class="home-quote text-xl" style="color:#d4d4d8">
+      “A room without books is like a body without a soul.”
+    </small>
+    <br />
+  </div>
+  <div class="home-right">
+    <img src="/finger.png" alt="Hero" />
+  </div>
+</div>

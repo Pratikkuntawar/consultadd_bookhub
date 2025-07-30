@@ -1,0 +1,64 @@
+
+<div class="modal-backdrop show">
+  <div class="modal d-block" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content custom-login-modal text-center p-4 bg-white">
+        <h5 class="modal-title text-black mb-3">Login</h5>
+        <form (ngSubmit)="onSubmit()" #loginForm="ngForm">
+          <!-- Email -->
+          <input
+            type="email"
+            name="email"
+            [(ngModel)]="loginData.email"
+            required
+            pattern="^[a-zA-Z0-9._%+-]+@consultadd\.com$"
+            #emailRef="ngModel"
+            class="form-control mb-1"
+            placeholder="Enter your Consultadd email"
+          />
+          <small class="text-danger" *ngIf="emailRef.invalid && emailRef.touched">
+            Valid Consultadd email is required 
+          </small>
+
+          <!-- Password -->
+          <input
+            type="password"
+            name="password"
+            [(ngModel)]="loginData.password"
+            required
+            minlength="6"
+            #passwordRef="ngModel"
+            class="form-control mb-1 mt-3"
+            placeholder="Enter password (min 8 chars)"
+          />
+          <small class="text-danger" *ngIf="passwordRef.invalid && passwordRef.touched">
+            Password must be at least 8 characters
+          </small>
+
+          <!-- Buttons -->
+          <div class="mt-4 ">
+            <button
+              type="submit"
+              class="btn btn-primary fw-bold"
+              [disabled]="!loginForm.valid"
+            >
+              Login
+            </button>
+            <button
+              type="button"
+              class="btn btn-danger ms-2 fw-bold"
+              (click)="handleClose()"
+            >
+              Close
+            </button>
+          </div>
+          <!-- <p class="mt-4">Don't Have An Account? <a class="text-info fw-semibold" (click)="movetosignuppage()">SignUp Here</a></p> -->
+        </form>
+         <p class="mt-4 text-dark small">
+          Don't Have An Account?
+          <a class="text-info fw-semibold" (click)="movetosignuppage()">SignUp Here</a>
+        </p>
+      </div>
+    </div>
+  </div>
+</div>

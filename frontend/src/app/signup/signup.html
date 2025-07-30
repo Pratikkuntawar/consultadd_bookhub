@@ -1,0 +1,118 @@
+
+<div class="modal-backdrop show ">
+  <div class="modal d-block" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content text-center p-4 bg-dark text-light rounded custom-modal-content">
+        <h5 class="modal-title mb-4 fw-bold">Signup</h5>
+
+        <form #signupForm="ngForm" (ngSubmit)="registerUser()" class="needs-validation" novalidate>
+
+          <!-- Full Name -->
+          <div class="form-group mb-3">
+            <input 
+              type="text" 
+              class="form-control text-center" 
+              placeholder="Enter Full Name" 
+              name="fullName" 
+              required 
+              [(ngModel)]="signupData.fullName"
+              #fullNameRef="ngModel" />
+            <small class="text-danger" *ngIf="fullNameRef.invalid && fullNameRef.touched">
+              Full name is required.
+            </small>
+          </div>
+
+          <!-- Email -->
+          <div class="form-group mb-3">
+            <input 
+              type="email" 
+              class="form-control text-center" 
+              placeholder="Enter Email" 
+              name="email" 
+              required 
+              pattern="^[a-zA-Z0-9._%+-]+@consultadd\.com$"
+              [(ngModel)]="signupData.email"
+              #emailRef="ngModel" />
+            <small class="text-danger" *ngIf="emailRef.invalid && emailRef.touched">
+              Valid Consultadd email is required 
+            </small>
+          </div>
+
+          <!-- Password -->
+          <div class="form-group mb-3">
+            <input 
+              type="password" 
+              class="form-control text-center" 
+              placeholder="Enter Password" 
+              name="password" 
+              required 
+              minlength="6"
+              [(ngModel)]="signupData.password"
+              #passwordRef="ngModel" />
+            <small class="text-danger" *ngIf="passwordRef.invalid && passwordRef.touched">
+              Password is required (min 6 characters).
+            </small>
+          </div>
+
+          <!-- Role -->
+          <div class="form-group mb-3">
+            <select 
+              class="form-select text-center" 
+              name="role" 
+              required 
+              [(ngModel)]="signupData.role"
+              #roleRef="ngModel">
+              <option value="" disabled selected>Select Role</option>
+              <option value="BUYER">Buyer</option>
+              <option value="SELLER">Seller</option>
+            </select>
+            <small class="text-danger" *ngIf="roleRef.invalid && roleRef.touched">
+              Role is required.
+            </small>
+          </div>
+
+          <!-- Department -->
+          <div class="form-group mb-4">
+            <select 
+              class="form-select text-center" 
+              name="department" 
+              required 
+              [(ngModel)]="signupData.department"
+              #departmentRef="ngModel">
+              <option value="" disabled selected>Select Department</option>
+              <option value="HR">HR</option>
+              <option value="CODING">Coding</option>
+              <option value="DELIVERY">Delivery</option>
+              <option value="SALES">Sales</option>
+              <option value="MARKETING">Marketing</option>
+            </select>
+            <small class="text-danger" *ngIf="departmentRef.invalid && departmentRef.touched">
+              Department is required.
+            </small>
+          </div>
+
+          <!-- Buttons -->
+          <div class="d-grid gap-2 d-md-flex justify-content-center">
+            <button 
+              type="submit" 
+              class="btn btn-outline-primary px-4" 
+              [disabled]="signupForm.invalid">
+              Register
+            </button>
+            <button 
+              type="button" 
+              class="btn btn-outline-danger px-4" 
+              (click)="handleClose()">
+              Close
+            </button>
+          </div>
+        </form>
+
+        <p class="mt-4 text-dark small">
+          Already have an account? 
+          <a class="text-info fw-semibold" (click)="moveToLoginRoute()">Login here</a>
+        </p>
+      </div>
+    </div>
+  </div>
+</div>

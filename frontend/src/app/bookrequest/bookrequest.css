@@ -1,0 +1,59 @@
+.modal-background {
+  background-color: #000; /* black background */
+  min-height: 100vh;
+  padding: 20px;
+}
+
+.form-modal {
+  background-color: #fff; /* white form */
+  max-width: 500px;
+  width: 100%;
+}
+.modal-background {
+  background-color: #000;
+  min-height: 100vh;
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Modal-like card with depth */
+.form-modal {
+  background-color: #ffffff;
+  border-radius: 20px;
+  padding: 30px;
+  width: 100%;
+  max-width: 500px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5); /* Deep shadow */
+  border: 1px solid #e0e0e0;
+  animation: popIn 0.4s ease-out;
+  transform: scale(1);
+  transition: transform 0.2s;
+}
+
+/* Optional hover scale */
+.form-modal:hover {
+  transform: scale(1.02);
+}
+
+/* Animation on load */
+@keyframes popIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+.buttons{
+    display: flex;
+}
+.button-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+  gap: 20px; /* space between buttons */
+}

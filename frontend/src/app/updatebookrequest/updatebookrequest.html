@@ -1,0 +1,30 @@
+<div class="home-container" style="background-color: #000; min-height: 100vh; padding: 20px;">
+
+  <div *ngFor="let user of pendingRequests" class="user-card">
+
+  <img src="/books.webp" alt="User" class="user-image" />
+      <div class="user-details">
+      <h5>📚 Book Title: {{ user.title }}</h5>
+      <h5>Donation Id:{{user.id}}</h5>
+<p>✍️ Author: {{ user.author }}</p>
+<p>📝 Reason: {{ user.reason }}</p>
+<p>🆔 Requester ID: {{ user.requester.id }}</p>
+<p>🙋 Request By: {{ user.requester.fullName }}</p>
+<p>📧 Requester Email: {{ user.requester.email }}</p>
+    </div>
+    <div class="action-buttons">
+      <img
+        src="/checked.png"
+        alt="Approve"
+        class="action-icon"
+        (click)="approveRequest(user.id)"
+      />
+      <img
+        src="/delete-button.png"
+        alt="Reject"
+        class="action-icon"
+        (click)="rejectRequest(user.id )"
+      />
+  </div>
+</div>
+</div>

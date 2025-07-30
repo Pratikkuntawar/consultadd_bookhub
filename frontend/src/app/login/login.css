@@ -1,0 +1,33 @@
+
+.modal-backdrop.show {
+  background-color: rgba(0, 0, 0, 0.85); /* Dark transparent overlay */
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 1040;
+}
+
+.modal-content.custom-login-modal {
+  background-color: #ffffff; /* White card */
+  color: #000000;
+  border-radius: 16px;
+  box-shadow: 0 4px 20px rgba(255, 255, 255, 0.2);
+  max-width: 400px;
+  margin: auto;
+  padding: 30px 25px;
+  border: none;
+}
+
+.dark-input {
+  background-color: #f9f9f9;
+  border: 1px solid #ccc;
+  color: #333;
+}
+
+.dark-input::placeholder {
+  color: #999;
+}
+
+

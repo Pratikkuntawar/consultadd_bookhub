@@ -1,0 +1,83 @@
+<nav class="navbar navbar-expand-lg navbar-dark px-4" style="background-color: #1a1a1a;">
+  <a class="navbar-brand" href="#">
+    <img src="/Consultadd_Logo.png" alt="Logo" width="250" height="60">
+  </a>
+  <button class="navbar-toggler" type="button" (click)="toggleMenu()">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" [ngClass]="{ 'show': isMenuOpen }" id="adminNavbar">
+    <ul class="navbar-nav mx-auto">
+      <li class="nav-item mx-2">
+        <a class="nav-link text-light" (click)="addbook()">Upload Books</a>
+      </li>
+      <li class="nav-item mx-2">
+        <a class="nav-link text-light" routerLink="/admin/book-management" (click)="updatebook()">Update Book</a>
+      </li>
+            <li class="nav-item mx-2">
+        <a class="nav-link text-light" routerLink="/admin/book-requests" (click)="donatebook()">Donate Book</a>
+      </li>
+
+       <li class="nav-item dropdown mx-2">
+  <a
+    class="nav-link dropdown-toggle text-light"
+    href="#"
+    role="button"
+    data-bs-toggle="dropdown"
+    aria-expanded="false"
+  >
+    Donations
+  </a>
+  <ul class="dropdown-menu">
+    <li>
+      <a class="dropdown-item" style="cursor: pointer;" (click)="movetoviewalldonations()">Get All Donations</a>
+    </li>
+    <li>
+      <a class="dropdown-item" style="cursor: pointer;" (click)="movetoupdatedonations()">Update Donation status</a>
+    </li>
+  </ul>
+</li>
+
+      <li class="nav-item dropdown mx-2">
+  <a
+    class="nav-link dropdown-toggle text-light"
+    href="#"
+    role="button"
+    data-bs-toggle="dropdown"
+    aria-expanded="false"
+  >
+    Book Request
+  </a>
+  <ul class="dropdown-menu">
+    <li>
+      <a class="dropdown-item" style="cursor: pointer;" (click)="movetoviewallbookrequest()">Get All Book Request</a>
+    </li>
+    <li>
+      <a class="dropdown-item" style="cursor: pointer;" (click)="movetoupdatebookrequest()">Update Book Status</a>
+    </li>
+  </ul>
+</li>
+    </ul>
+       <a  style="cursor: pointer;"  class="profile" (click)="visitprofile()"><img src="https://cdn-icons-png.flaticon.com/512/149/149071.png" alt="Profile" class="profile-icon"></a>
+  </div>
+</nav>
+
+<!-- Admin Dashboard Content -->
+<div class="home-container" style="background-color: #000000; color: #ffffff; height: 100vh;">
+  <div class="home-left-content">
+    <h1 class="home-title text-6xl font-semibold text-yellow-100" style="color:#fef9c3">
+      Welcome to the Seller Dashboard
+    </h1>
+    <p class="home-description text-xl" style="color:#d4d4d8">
+      Manage your book listings, track sales, update inventory, and grow your business. This is your personal control center for everything you need as a seller.
+    </p>
+
+    <br />
+    <button class="home-button mt-4 explore-button" (click)="addbook()">
+      Add New Book
+    </button>
+  </div>
+  <div class="home-right">
+    <img src="/businessman.png" alt="Seller Panel Illustration" />
+  </div>
+</div>
